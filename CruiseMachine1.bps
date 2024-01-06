@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+    <org.eventb.core.psStatus name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_enters_safety_distance/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="105" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_enters_safety_distance/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="105" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_enters_safety_distance/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="105" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_enters_safety_distance/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="105" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_enters_safety_distance/acc_pedal_command/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="105" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_before_timer/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_before_timer/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_increased/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_increased/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_increased/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_increased/brake_pedal_command/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_decreased/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_decreased/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_decreased/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_in_safety_distance_decreased/brake_pedal_command/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_exits_safety_distance/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_exits_safety_distance/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_exits_safety_distance/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="vehicle_exits_safety_distance/brake_pedal_command/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="accelerate_vehicle/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="108" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="decelerate_vehicle/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="108" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="show_board_warning/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="hide_board_warning/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="101" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>

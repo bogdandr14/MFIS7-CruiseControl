@@ -1,0 +1,150 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{CruiseMachine}
+\MACHINE{CruiseMachine}{}{CruiseCtx}{}
+\VARIABLES{
+	\Variable{cruise\_system\_state}{		}
+	\Variable{cruise\_speed\_up}{}
+	\Variable{cruise\_speed\_down}{}
+	\Variable{brake\_pedal\_perc}{}
+	\Variable{acc\_pedal\_perc}{}
+	\Variable{cruise\_start\_stop}{}
+	\Variable{current\_speed}{}
+	\Variable{acc\_pedal\_command}{}
+	\Variable{brake\_pedal\_command}{}
+	\Variable{cruise\_speed}{}
+}
+\INVARIANTS{
+	\Invariant{inv1}{false}{$cruise\_system\_state \in{} BUTTON\_STATE$}{}
+	\Invariant{inv2}{false}{$cruise\_speed\_up \in{} BUTTON\_STATE$}{}
+	\Invariant{inv3}{false}{$cruise\_speed\_down \in{} BUTTON\_STATE$}{}
+	\Invariant{inv4}{false}{$brake\_pedal\_perc \in{} \nat{} $}{}
+	\Invariant{inv5}{false}{$brake\_pedal\_perc \geq{} 0$}{}
+	\Invariant{inv6}{false}{$brake\_pedal\_perc \leq{} 100$}{}
+	\Invariant{inv7}{false}{$acc\_pedal\_perc \in{} \nat{} $}{}
+	\Invariant{inv8}{false}{$acc\_pedal\_perc \geq{} 0$}{}
+	\Invariant{inv9}{false}{$acc\_pedal\_perc \leq{} 100$}{}
+	\Invariant{inv10}{false}{$cruise\_start\_stop \in{} BUTTON\_STATE$}{}
+	\Invariant{inv11}{false}{$cruise\_speed \in{} \nat{} $}{}
+	\Invariant{inv13}{false}{$cruise\_speed \geq{} 1000$}{}
+	\Invariant{inv14}{false}{$cruise\_speed \in{} \nat{} $}{}
+	\Invariant{inv15}{false}{$current\_speed \geq{} 0$}{}
+	\Invariant{inv16}{false}{$current\_speed \leq{} CAR\_MAX\_SPEED$}{}
+	\Invariant{inv17}{false}{$acc\_pedal\_command \in{} PEDAL\_COMMAND$}{}
+	\Invariant{inv18}{false}{$brake\_pedal\_command \in{} PEDAL\_COMMAND$}{}
+}
+\EVENTS{
+\INITIALISATION{false}{}{
+	\ACTIONS{false}{
+		\Action{act1}{$cruise\_system\_state \bcmeq{} FALSE$}{true}{}
+		\Action{act2}{$cruise\_speed\_up \bcmeq{} FALSE $}{true}{}
+		\Action{act3}{$cruise\_speed\_down \bcmeq{} FALSE$}{true}{}
+		\Action{act4}{$cruise\_start\_stop \bcmeq{} FALSE$}{true}{}
+		\Action{act5}{$cruise\_speed \bcmeq{} 50000$}{true}{}
+		\Action{act6}{$acc\_pedal\_perc \bcmeq{} 0$}{true}{}
+		\Action{act7}{$brake\_pedal\_perc \bcmeq{} 0$}{true}{}
+		\Action{act8}{$acc\_pedal\_command \bcmeq{} 0 $}{true}{}
+		\Action{act9}{$brake\_pedal\_command \bcmeq{} 0 $}{true}{}
+		\Action{act10}{$current\_speed \bcmeq{} 0 $}{true}{}
+	}
+}
+\EVT{cruise\_increase\_speed}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = FALSE$}{true}{}
+		\Guard{grd2}{false}{$cruise\_speed\_up = TRUE$}{true}{}
+		\Guard{grd3}{false}{$cruise\_speed\_down = FALSE$}{true}{}
+		\Guard{grd4}{false}{$cruise\_speed \leq{} CRUISE\_MAX\_SPEED - 2500$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_speed \bcmeq{} cruise\_speed + 2500$}{true}{}
+	}
+}
+\EVT{cruise\_decrease\_speed}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = FALSE$}{true}{}
+		\Guard{grd2}{false}{$cruise\_speed\_down = TRUE$}{true}{}
+		\Guard{grd3}{false}{$cruise\_speed\_up = FALSE$}{true}{}
+		\Guard{grd4}{false}{$cruise\_speed \geq{} 3500$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_speed \bcmeq{} cruise\_speed - 2500$}{true}{}
+	}
+}
+\EVT{cruise\_start\_stop}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_start\_stop = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_system\_state \bcmeq{} CHANGE\_STATE(cruise\_system\_state)$}{true}{}
+	}
+}
+\EVT{accelerate\_vehicle}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$current\_speed < cruise\_speed$}{true}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$brake\_pedal\_perc = 0 $}{true}{}
+		\Guard{grd4}{false}{$brake\_pedal\_command = 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 1$}{true}{}
+	}
+}
+\EVT{decelerate\_vehicle}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$current\_speed > cruise\_speed$}{true}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$brake\_pedal\_perc = 0 $}{true}{}
+		\Guard{grd4}{false}{$acc\_pedal\_perc > 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 2$}{true}{}
+	}
+}
+\EVT{increase\_acc\_pedal}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$acc\_pedal\_command = 1$}{true}{}
+		\Guard{grd2}{false}{$acc\_pedal\_perc \leq{} 98$}{true}{}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 0$}{true}{}
+		\Action{act2}{$acc\_pedal\_perc \bcmeq{} acc\_pedal\_perc + 2$}{true}{}
+	}
+}
+\EVT{decrease\_acc\_pedal}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$acc\_pedal\_command = 2$}{true}{}
+		\Guard{grd2}{false}{$acc\_pedal\_perc \geq{} 2$}{true}{}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 0$}{true}{}
+		\Action{act2}{$acc\_pedal\_perc \bcmeq{} acc\_pedal\_perc - 2$}{true}{}
+	}
+}
+\EVT{increase\_brake\_pedal}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$brake\_pedal\_command = 1$}{true}{}
+		\Guard{grd2}{false}{$brake\_pedal\_perc \leq{} 98$}{true}{}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$brake\_pedal\_command \bcmeq{} 0$}{true}{}
+		\Action{act2}{$brake\_pedal\_perc \bcmeq{} brake\_pedal\_perc + 2$}{true}{}
+	}
+}
+\EVT{decrease\_brake\_pedal}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$brake\_pedal\_command = 2$}{true}{}
+		\Guard{grd2}{false}{$brake\_pedal\_perc \geq{} 2$}{true}{}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$brake\_pedal\_command \bcmeq{} 0$}{true}{}
+		\Action{act2}{$brake\_pedal\_perc \bcmeq{} brake\_pedal\_perc - 2$}{true}{}
+	}
+}
+}
+\END
+\end{document}
