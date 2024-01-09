@@ -99,4 +99,37 @@
     <org.eventb.core.variable name="M" org.eventb.core.identifier="brake_pedal_state"/>
     <org.eventb.core.variable name="N" org.eventb.core.identifier="acc_pedal_command"/>
     <org.eventb.core.variable name="O" org.eventb.core.identifier="brake_pedal_command"/>
+    <org.eventb.core.event name="P" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="cruise_decrease_speed">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="cruise_decrease_speed"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Q" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="cruise_increase_speed">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="cruise_increase_speed"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="R" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="cruise_start_stop">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="cruise_start_stop"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="S" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="decrease_acc_pedal">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="decrease_acc_pedal"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="T" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="decrease_brake_pedal">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="decrease_brake_pedal"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="U" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="increase_acc_pedal">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="increase_acc_pedal"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="V" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="increase_brake_pedal">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="increase_brake_pedal"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="W" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lift_acc_pedal">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lift_acc_pedal"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="X" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lift_brake_pedal">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lift_brake_pedal"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Y" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="speed_acc_pedal_pressed">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="speed_acc_pedal_pressed"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Z" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="speed_no_acc_pedal_pressed">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="speed_no_acc_pedal_pressed"/>
+    </org.eventb.core.event>
 </org.eventb.core.machineFile>

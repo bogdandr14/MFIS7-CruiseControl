@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="155">
-    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="151">
+<org.eventb.core.poFile org.eventb.core.poStamp="158">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="BUTTON_STATE" org.eventb.core.type="ℙ(BOOL)"/>
         <org.eventb.core.poIdentifier name="CAR_MAX_SPEED" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="SET_PEDAL_STATE" org.eventb.core.type="ℙ(ℤ×BOOL)"/>
@@ -32,7 +32,7 @@
         <org.eventb.core.poPredicate name="CRUISE_MAX_SPEEW" org.eventb.core.predicate="SET_PEDAL_STATE∈0 ‥ 100 ⤖ {TRUE,FALSE}" org.eventb.core.source="/CruiseControl/CruiseCtx.buc|org.eventb.core.contextFile#CruiseCtx|org.eventb.core.axiom#I"/>
         <org.eventb.core.poPredicate name="CRUISE_MAX_SPEEX" org.eventb.core.predicate="SET_PEDAL_STATE={x⦂ℤ·x=0 ∣ x ↦ FALSE}∪{x⦂ℤ·x∈1 ‥ 100 ∣ x ↦ TRUE}" org.eventb.core.source="/CruiseControl/CruiseCtx.buc|org.eventb.core.contextFile#CruiseCtx|org.eventb.core.axiom#K"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="current_speed" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="brake_pedal_state" org.eventb.core.type="BOOL"/>
         <org.eventb.core.poIdentifier name="brake_pedal_command" org.eventb.core.type="ℤ"/>
@@ -47,7 +47,7 @@
         <org.eventb.core.poIdentifier name="cruise_system_state" org.eventb.core.type="BOOL"/>
         <org.eventb.core.poIdentifier name="cruise_speed_up" org.eventb.core.type="BOOL"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#-"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -55,7 +55,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#."/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -63,7 +63,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#\/"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -71,7 +71,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#7"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -79,7 +79,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD3"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="50000∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#8"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -87,7 +87,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="50000≥1000" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#="/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -95,7 +95,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="50000∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#?"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -103,7 +103,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#@"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -111,7 +111,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤CAR_MAX_SPEED" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#A"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -119,7 +119,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#F"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -127,7 +127,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#G"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -135,7 +135,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD10"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#S"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -143,7 +143,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD11"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv13/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv13/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#T"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -151,7 +151,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv13\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD12"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv14/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv14/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤100" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#U"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -159,7 +159,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv14\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD13"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv15/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv15/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#V"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -167,7 +167,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv15\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD14"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv16/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv16/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#W"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -175,7 +175,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv16\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD15"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv17/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv17/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤100" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#X"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -183,7 +183,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv17\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD16"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv18/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv18/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#Y"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -191,7 +191,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv18\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD17"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv19/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv19/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤CAR_MAX_SPEED" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#Z"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -199,7 +199,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv19\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD18"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv20/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv20/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#e"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -207,7 +207,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv20\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD19"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="INITIALISATION/inv21/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="INITIALISATION/inv21/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statf"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#f"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#'"/>
@@ -215,7 +215,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#INITIALISATION\/inv21\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD20"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statf" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statf" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="brake_pedal_perc'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="cruise_speed_up'" org.eventb.core.type="BOOL"/>
         <org.eventb.core.poIdentifier name="acc_pedal_state'" org.eventb.core.type="BOOL"/>
@@ -230,8 +230,8 @@
         <org.eventb.core.poIdentifier name="cruise_start_stop'" org.eventb.core.type="BOOL"/>
         <org.eventb.core.poIdentifier name="cruise_system_state'" org.eventb.core.type="BOOL"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statf" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statf" org.eventb.core.poStamp="151"/>
-    <org.eventb.core.poSequent name="cruise_increase_speed/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statf" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statf" org.eventb.core.poStamp="157"/>
+    <org.eventb.core.poSequent name="cruise_increase_speed/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statg"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cruise_speed+2500∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#8"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#6"/>
@@ -239,7 +239,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#cruise_increase_speed\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="cruise_increase_speed/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="cruise_increase_speed/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statg"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cruise_speed+2500≥1000" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#="/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#6"/>
@@ -247,7 +247,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#cruise_increase_speed\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="cruise_increase_speed/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="cruise_increase_speed/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statg"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cruise_speed+2500∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#?"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#6"/>
@@ -255,16 +255,16 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#cruise_increase_speed\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statg" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statg" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="cruise_speed'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statg" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statg" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statg" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statg" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="cruise_system_state=FALSE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#6|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_speed_up=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#6|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cruise_speed_down=FALSE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#6|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="cruise_speed≤CRUISE_MAX_SPEED − 2500" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#6|org.eventb.core.guard#*"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="cruise_decrease_speed/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="cruise_decrease_speed/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stath"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cruise_speed − 2500∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#8"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#;"/>
@@ -272,7 +272,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#cruise_decrease_speed\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="cruise_decrease_speed/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="cruise_decrease_speed/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stath"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cruise_speed − 2500≥1000" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#="/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#;"/>
@@ -280,7 +280,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#cruise_decrease_speed\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="cruise_decrease_speed/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="cruise_decrease_speed/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stath"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cruise_speed − 2500∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#?"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#;"/>
@@ -288,16 +288,16 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#cruise_decrease_speed\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD6"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_stath" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_stath" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="cruise_speed'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_stath" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_stath" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_stath" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_stath" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="cruise_system_state=FALSE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#;|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_speed_down=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#;|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cruise_speed_up=FALSE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#;|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="cruise_speed≥3500" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#;|org.eventb.core.guard#*"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="cruise_start_stop/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="cruise_start_stop/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stati"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="CHANGE_STATE(cruise_system_state)∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#-"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#B"/>
@@ -305,19 +305,19 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#cruise_start_stop\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="cruise_start_stop/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="cruise_start_stop/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stati"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cruise_system_state∈dom(CHANGE_STATE)∧CHANGE_STATE∈BOOL ⇸ BOOL" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#B|org.eventb.core.action#)"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#B|org.eventb.core.action#)"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stati"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_stati" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_stati" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
         <org.eventb.core.poIdentifier name="cruise_system_state'" org.eventb.core.type="BOOL"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_stati" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_stati" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_stati" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_stati" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="cruise_start_stop=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#B|org.eventb.core.guard#'"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="accelerate_vehicle/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="152">
+    <org.eventb.core.poSequent name="accelerate_vehicle/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statj"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#F"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#C"/>
@@ -325,17 +325,17 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#accelerate_vehicle\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statj" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statj" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="acc_pedal_command'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statj" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statj" org.eventb.core.poStamp="152">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statj" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statj" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="current_speed&lt;cruise_speed" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#C|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#C|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="brake_pedal_state=FALSE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#C|org.eventb.core.guard#*"/>
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="brake_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#C|org.eventb.core.guard#+"/>
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="acc_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#C|org.eventb.core.guard#,"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="decelerate_vehicle/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="153">
+    <org.eventb.core.poSequent name="decelerate_vehicle/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statk"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="2∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#F"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#H"/>
@@ -343,17 +343,17 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decelerate_vehicle\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statk" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statk" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="acc_pedal_command'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statk" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statk" org.eventb.core.poStamp="153">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statk" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statk" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="current_speed&gt;cruise_speed" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#H|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#H|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="brake_pedal_state=FALSE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#H|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="brake_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#H|org.eventb.core.guard#*"/>
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="acc_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#H|org.eventb.core.guard#,"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="increase_acc_pedal/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="154">
+    <org.eventb.core.poSequent name="increase_acc_pedal/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#F"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#["/>
@@ -361,7 +361,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_acc_pedal\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_acc_pedal/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="154">
+    <org.eventb.core.poSequent name="increase_acc_pedal/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(acc_pedal_perc+1)∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#S"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#["/>
@@ -369,7 +369,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_acc_pedal\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD11"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_acc_pedal/inv13/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="154">
+    <org.eventb.core.poSequent name="increase_acc_pedal/inv13/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(acc_pedal_perc+1)≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#T"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#["/>
@@ -377,7 +377,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_acc_pedal\/inv13\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD12"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_acc_pedal/inv14/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="154">
+    <org.eventb.core.poSequent name="increase_acc_pedal/inv14/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(acc_pedal_perc+1)≤100" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#U"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#["/>
@@ -385,31 +385,37 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_acc_pedal\/inv14\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD13"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_acc_pedal/inv20/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="154">
+    <org.eventb.core.poSequent name="increase_acc_pedal/inv20/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="158">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
-        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="TRUE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#e"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PEDAL_STATE(acc_pedal_perc)∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#e"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#["/>
         <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#e"/>
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_acc_pedal\/inv20\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD19"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_acc_pedal/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="154">
+    <org.eventb.core.poSequent name="increase_acc_pedal/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="acc_pedal_perc+1∈dom(SET_PERCENTAGE)∧SET_PERCENTAGE∈ℤ ⇸ ℤ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#[|org.eventb.core.action#+"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#[|org.eventb.core.action#+"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statl" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="increase_acc_pedal/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="158">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="acc_pedal_perc∈dom(SET_PEDAL_STATE)∧SET_PEDAL_STATE∈ℤ ⇸ BOOL" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#[|org.eventb.core.action#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#[|org.eventb.core.action#,"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statl"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statl" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="acc_pedal_state'" org.eventb.core.type="BOOL"/>
         <org.eventb.core.poIdentifier name="acc_pedal_perc'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="acc_pedal_command'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statl" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statl" org.eventb.core.poStamp="154">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statl" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statl" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="acc_pedal_command=1" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#[|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#[|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="brake_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#[|org.eventb.core.guard#-"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="decrease_acc_pedal/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_acc_pedal/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#F"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\"/>
@@ -417,7 +423,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_acc_pedal\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_acc_pedal/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_acc_pedal/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(acc_pedal_perc − 1)∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#S"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\"/>
@@ -425,7 +431,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_acc_pedal\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD11"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_acc_pedal/inv13/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_acc_pedal/inv13/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(acc_pedal_perc − 1)≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#T"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\"/>
@@ -433,7 +439,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_acc_pedal\/inv13\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD12"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_acc_pedal/inv14/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_acc_pedal/inv14/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(acc_pedal_perc − 1)≤100" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#U"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\"/>
@@ -441,7 +447,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_acc_pedal\/inv14\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD13"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_acc_pedal/inv20/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_acc_pedal/inv20/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PEDAL_STATE(acc_pedal_perc)∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#e"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\"/>
@@ -449,29 +455,29 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_acc_pedal\/inv20\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD19"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_acc_pedal/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_acc_pedal/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="acc_pedal_perc − 1∈dom(SET_PERCENTAGE)∧SET_PERCENTAGE∈ℤ ⇸ ℤ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\|org.eventb.core.action#+"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\|org.eventb.core.action#+"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_acc_pedal/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_acc_pedal/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="acc_pedal_perc∈dom(SET_PEDAL_STATE)∧SET_PEDAL_STATE∈ℤ ⇸ BOOL" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\|org.eventb.core.action#,"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\|org.eventb.core.action#,"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statm"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statm" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statm" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="acc_pedal_state'" org.eventb.core.type="BOOL"/>
         <org.eventb.core.poIdentifier name="acc_pedal_perc'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="acc_pedal_command'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statm" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statm" org.eventb.core.poStamp="155">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statm" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statm" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="acc_pedal_command=2" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="brake_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#\\|org.eventb.core.guard#-"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="increase_brake_pedal/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="increase_brake_pedal/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statn"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#G"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]"/>
@@ -479,7 +485,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_brake_pedal\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD10"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_brake_pedal/inv15/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="increase_brake_pedal/inv15/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statn"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(brake_pedal_perc+1)∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#V"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]"/>
@@ -487,7 +493,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_brake_pedal\/inv15\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD14"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_brake_pedal/inv16/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="increase_brake_pedal/inv16/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statn"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(brake_pedal_perc+1)≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#W"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]"/>
@@ -495,7 +501,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_brake_pedal\/inv16\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD15"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_brake_pedal/inv17/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="increase_brake_pedal/inv17/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statn"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(brake_pedal_perc+1)≤100" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#X"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]"/>
@@ -503,7 +509,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_brake_pedal\/inv17\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD16"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_brake_pedal/inv21/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="increase_brake_pedal/inv21/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statn"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="TRUE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#f"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]"/>
@@ -511,23 +517,23 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#increase_brake_pedal\/inv21\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD20"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="increase_brake_pedal/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="increase_brake_pedal/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statn"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="brake_pedal_perc+1∈dom(SET_PERCENTAGE)∧SET_PERCENTAGE∈ℤ ⇸ ℤ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]|org.eventb.core.action#+"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]|org.eventb.core.action#+"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statn"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statn" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statn" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="brake_pedal_perc'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="brake_pedal_command'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="brake_pedal_state'" org.eventb.core.type="BOOL"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statn" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statn" org.eventb.core.poStamp="155">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statn" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statn" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="brake_pedal_command=1" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="acc_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#]|org.eventb.core.guard#-"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="decrease_brake_pedal/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_brake_pedal/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#G"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^"/>
@@ -535,7 +541,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_brake_pedal\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD10"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_brake_pedal/inv15/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_brake_pedal/inv15/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(brake_pedal_perc − 1)∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#V"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^"/>
@@ -543,7 +549,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_brake_pedal\/inv15\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD14"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_brake_pedal/inv16/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_brake_pedal/inv16/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(brake_pedal_perc − 1)≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#W"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^"/>
@@ -551,7 +557,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_brake_pedal\/inv16\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD15"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_brake_pedal/inv17/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_brake_pedal/inv17/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PERCENTAGE(brake_pedal_perc − 1)≤100" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#X"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^"/>
@@ -559,7 +565,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_brake_pedal\/inv17\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD16"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_brake_pedal/inv21/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_brake_pedal/inv21/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="SET_PEDAL_STATE(brake_pedal_perc)∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#f"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^"/>
@@ -567,29 +573,29 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#decrease_brake_pedal\/inv21\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD20"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_brake_pedal/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_brake_pedal/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="brake_pedal_perc − 1∈dom(SET_PERCENTAGE)∧SET_PERCENTAGE∈ℤ ⇸ ℤ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^|org.eventb.core.action#+"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^|org.eventb.core.action#+"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="decrease_brake_pedal/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="decrease_brake_pedal/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="brake_pedal_perc∈dom(SET_PEDAL_STATE)∧SET_PEDAL_STATE∈ℤ ⇸ BOOL" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^|org.eventb.core.action#,"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^|org.eventb.core.action#,"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stato"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_stato" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_stato" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="brake_pedal_perc'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="brake_pedal_command'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="brake_pedal_state'" org.eventb.core.type="BOOL"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_stato" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_stato" org.eventb.core.poStamp="155">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_stato" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_stato" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="brake_pedal_command=2" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="acc_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#^|org.eventb.core.guard#-"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="lift_acc_pedal/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_acc_pedal/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statp"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#F"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#_"/>
@@ -597,7 +603,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_acc_pedal\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD9"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="lift_acc_pedal/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_acc_pedal/inv12/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statp"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#S"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#_"/>
@@ -605,7 +611,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_acc_pedal\/inv12\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD11"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="lift_acc_pedal/inv13/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_acc_pedal/inv13/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statp"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#T"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#_"/>
@@ -613,7 +619,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_acc_pedal\/inv13\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD12"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="lift_acc_pedal/inv14/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_acc_pedal/inv14/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statp"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤100" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#U"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#_"/>
@@ -621,7 +627,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_acc_pedal\/inv14\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD13"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="lift_acc_pedal/inv20/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_acc_pedal/inv20/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statp"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#e"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#_"/>
@@ -629,17 +635,17 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_acc_pedal\/inv20\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD19"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statp" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statp" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="acc_pedal_state'" org.eventb.core.type="BOOL"/>
         <org.eventb.core.poIdentifier name="acc_pedal_perc'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="acc_pedal_command'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statp" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statp" org.eventb.core.poStamp="155">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statp" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statp" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="acc_pedal_command=3" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#_|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#_|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="brake_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#_|org.eventb.core.guard#,"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="lift_brake_pedal/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_brake_pedal/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statq"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈PEDAL_COMMAND" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#G"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#`"/>
@@ -647,7 +653,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_brake_pedal\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD10"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="lift_brake_pedal/inv15/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_brake_pedal/inv15/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statq"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#V"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#`"/>
@@ -655,7 +661,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_brake_pedal\/inv15\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD14"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="lift_brake_pedal/inv16/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_brake_pedal/inv16/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statq"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#W"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#`"/>
@@ -663,7 +669,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_brake_pedal\/inv16\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD15"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="lift_brake_pedal/inv17/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_brake_pedal/inv17/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statq"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤100" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#X"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#`"/>
@@ -671,7 +677,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_brake_pedal\/inv17\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD16"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="lift_brake_pedal/inv21/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="155">
+    <org.eventb.core.poSequent name="lift_brake_pedal/inv21/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statq"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#f"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#`"/>
@@ -679,17 +685,17 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#lift_brake_pedal\/inv21\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD20"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statq" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statq" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="brake_pedal_perc'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="brake_pedal_command'" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="brake_pedal_state'" org.eventb.core.type="BOOL"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statq" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statq" org.eventb.core.poStamp="155">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statq" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statq" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="brake_pedal_command=3" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#`|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#`|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="acc_pedal_command=0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#`|org.eventb.core.guard#,"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="speed_acc_pedal_pressed/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="speed_acc_pedal_pressed/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statr"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="MAX_POS(current_speed+(acc_pedal_perc∗50 − current_speed∗5000 ÷ CAR_MAX_SPEED))≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#@"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#a"/>
@@ -697,7 +703,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#speed_acc_pedal_pressed\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="speed_acc_pedal_pressed/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="speed_acc_pedal_pressed/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statr"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="MAX_POS(current_speed+(acc_pedal_perc∗50 − current_speed∗5000 ÷ CAR_MAX_SPEED))≤CAR_MAX_SPEED" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#A"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#a"/>
@@ -705,20 +711,20 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#speed_acc_pedal_pressed\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="speed_acc_pedal_pressed/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="speed_acc_pedal_pressed/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statr"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="CAR_MAX_SPEED≠0∧current_speed+(acc_pedal_perc∗50 − current_speed∗5000 ÷ CAR_MAX_SPEED)∈dom(MAX_POS)∧MAX_POS∈ℤ ⇸ ℤ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#a|org.eventb.core.action#)"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#a|org.eventb.core.action#)"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_statr"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statr" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_statr" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="current_speed'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statr" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statr" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_statr" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_statr" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="acc_pedal_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#a|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#a|org.eventb.core.guard#("/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="speed_no_acc_pedal_pressed/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="speed_no_acc_pedal_pressed/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stats"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="MAX_POS(current_speed − 100 − 50∗brake_pedal_perc)≥0" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#@"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#b"/>
@@ -726,7 +732,7 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#speed_no_acc_pedal_pressed\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="speed_no_acc_pedal_pressed/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="speed_no_acc_pedal_pressed/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stats"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="MAX_POS(current_speed − 100 − 50∗brake_pedal_perc)≤CAR_MAX_SPEED" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#A"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#b"/>
@@ -734,20 +740,20 @@
         <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poSequent#speed_no_acc_pedal_pressed\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD8"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="speed_no_acc_pedal_pressed/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="151">
+    <org.eventb.core.poSequent name="speed_no_acc_pedal_pressed/act1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stats"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="current_speed − 100 − 50∗brake_pedal_perc∈dom(MAX_POS)∧MAX_POS∈ℤ ⇸ ℤ" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#b|org.eventb.core.action#)"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#b|org.eventb.core.action#)"/>
         <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTALLHYPcruise_system_stats"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_stats" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTIDENTcruise_system_stats" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poIdentifier name="current_speed'" org.eventb.core.type="ℤ"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_stats" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_stats" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPcruise_system_stats" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#EVTIDENTcruise_system_stats" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="acc_pedal_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#b|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_system_state=TRUE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.event#b|org.eventb.core.guard#("/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="151">
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/CruiseControl/CruiseMachine.bpo|org.eventb.core.poFile#CruiseMachine|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="157">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="cruise_system_state∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#-"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="cruise_speed_up∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#."/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="cruise_speed_down∈BUTTON_STATE" org.eventb.core.source="/CruiseControl/CruiseMachine.bum|org.eventb.core.machineFile#CruiseMachine|org.eventb.core.invariant#\/"/>

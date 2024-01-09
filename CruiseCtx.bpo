@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="58">
-    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="55">
+<org.eventb.core.poFile org.eventb.core.poStamp="60">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="60">
         <org.eventb.core.poIdentifier name="BUTTON_STATE" org.eventb.core.type="ℙ(BOOL)"/>
         <org.eventb.core.poIdentifier name="CAR_MAX_SPEED" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="SET_PEDAL_STATE" org.eventb.core.type="ℙ(ℤ×BOOL)"/>
@@ -12,7 +12,7 @@
         <org.eventb.core.poIdentifier name="CRUISE_MAX_SPEED" org.eventb.core.type="ℤ"/>
         <org.eventb.core.poIdentifier name="SET_PERCENTAGE" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/CruiseControl/CruiseCtx.bpo|org.eventb.core.poFile#CruiseCtx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="58">
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/CruiseControl/CruiseCtx.bpo|org.eventb.core.poFile#CruiseCtx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="60">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ" org.eventb.core.source="/CruiseControl/CruiseCtx.buc|org.eventb.core.contextFile#CruiseCtx|org.eventb.core.axiom#)"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="BUTTON_STATE={TRUE,FALSE}" org.eventb.core.source="/CruiseControl/CruiseCtx.buc|org.eventb.core.contextFile#CruiseCtx|org.eventb.core.axiom#*"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="CRUISE_MAX_SPEED≥1000" org.eventb.core.source="/CruiseControl/CruiseCtx.buc|org.eventb.core.contextFile#CruiseCtx|org.eventb.core.axiom#,"/>
