@@ -1,0 +1,26 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\SingleHeader{CruiseCtx}
+\CONTEXT{CruiseCtx}{}{}
+\CONSTANTS{
+	\Constant{CRUISE\_MAX\_SPEED}{}
+	\Constant{BUTTON\_STATE}{}
+	\Constant{CAR\_MAX\_SPEED}{}
+	\Constant{CHANGE\_STATE}{}
+	\Constant{PEDAL\_COMMAND}{}
+}
+\AXIOMS{
+	\Axiom{axm1}{false}{$CRUISE\_MAX\_SPEED \in{} \nat{} $}{}
+	\Axiom{axm2}{false}{$BUTTON\_STATE = \{TRUE, FALSE\}$}{}
+	\Axiom{axm3}{false}{$CRUISE\_MAX\_SPEED \geq{} 1000$}{}
+	\Axiom{axm4}{false}{$CAR\_MAX\_SPEED \in{} \nat{} $}{}
+	\Axiom{axm5}{false}{$CAR\_MAX\_SPEED > 1000$}{}
+	\Axiom{axm6}{false}{$CHANGE\_STATE \in{} \{TRUE, FALSE\} \tbij{} \{TRUE, FALSE\}$}{}
+	\Axiom{axm7}{false}{$CHANGE\_STATE = \{TRUE \mapsto{} FALSE, FALSE \mapsto{} TRUE\}$}{}
+	\Axiom{axm8}{false}{$CRUISE\_MAX\_SPEED \leq{} CAR\_MAX\_SPEED$}{}
+	\Axiom{axm9}{false}{$PEDAL\_COMMAND \subset{} \nat{}   $}{}
+	\Axiom{axm10}{false}{$PEDAL\_COMMAND = 0\upto{}3$}{}
+}
+\END
+\end{document}

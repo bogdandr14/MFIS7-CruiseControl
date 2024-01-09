@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;org.eventb.codegen.ui.cgConfig" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="speed_sensor ≔ 0" org.eventb.core.label="act11"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="acc_pedal_perc ≔ 0" org.eventb.core.label="act12"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="brake_pedal_perc ≔ 0" org.eventb.core.label="act13"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 0 " org.eventb.core.label="act14"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="brake_pedal_command ≔ 0 " org.eventb.core.label="act15"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="cruise_system_state ≔ FALSE" org.eventb.core.label="act16"/>
+    </org.eventb.core.event>
+    <org.eventb.core.refinesMachine name="(" org.eventb.core.target="CruiseMachine"/>
+    <org.eventb.core.seesContext name=")" org.eventb.core.target="CruiseCtx"/>
+    <org.eventb.core.variable name="*" org.eventb.core.identifier="speed_sensor"/>
+    <org.eventb.core.invariant name="/" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv3" org.eventb.core.predicate="speed_sensor ∈ ℕ "/>
+    <org.eventb.core.invariant name="0" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="inv4" org.eventb.core.predicate="speed_sensor ≤ CAR_MAX_SPEED"/>
+    <org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="increase_acc_pedal">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="acc_pedal_command = 1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="acc_pedal_perc ≤ 98"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="acc_pedal_perc ≔ acc_pedal_perc + 2" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="2" org.eventb.core.identifier="acc_pedal_perc"/>
+    <org.eventb.core.variable name="3" org.eventb.core.identifier="brake_pedal_perc"/>
+    <org.eventb.core.invariant name="4" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv5" org.eventb.core.predicate="acc_pedal_perc ∈ ℕ"/>
+    <org.eventb.core.invariant name="6" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="inv7" org.eventb.core.predicate="acc_pedal_perc ≥ 0"/>
+    <org.eventb.core.invariant name="7" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="inv8" org.eventb.core.predicate="acc_pedal_perc ≤ 100"/>
+    <org.eventb.core.invariant name="8" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv9" org.eventb.core.predicate="brake_pedal_perc ∈ ℕ"/>
+    <org.eventb.core.invariant name="9" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="inv10" org.eventb.core.predicate="brake_pedal_perc ≥ 0"/>
+    <org.eventb.core.invariant name=":" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="inv11" org.eventb.core.predicate="brake_pedal_perc ≤ 100"/>
+    <org.eventb.core.event name=";" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="decrease_acc_pedal">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="Simple" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="acc_pedal_command = 2"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="acc_pedal_perc ≥ 2"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="acc_pedal_perc ≔ acc_pedal_perc − 2" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="=" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="increase_brake_pedal">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="brake_pedal_command = 1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="brake_pedal_perc ≤ 98"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="brake_pedal_perc ≔ brake_pedal_perc + 2" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="&gt;" org.eventb.core.identifier="acc_pedal_command"/>
+    <org.eventb.core.variable name="?" org.eventb.core.identifier="brake_pedal_command"/>
+    <org.eventb.core.variable name="@" org.eventb.core.identifier="cruise_system_state"/>
+    <org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="decrease_brake_pedal">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="brake_pedal_command = 2"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="brake_pedal_perc ≥ 2"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="brake_pedal_perc ≔ brake_pedal_perc − 2" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="B" org.eventb.core.identifier="cruise_speed"/>
+    <org.eventb.core.variable name="C" org.eventb.core.identifier="current_speed"/>
+    <org.eventb.core.variable name="D" org.eventb.core.identifier="acc_pedal_state"/>
+    <org.eventb.core.variable name="E" org.eventb.core.identifier="brake_pedal_state"/>
+</org.eventb.core.machineFile>
