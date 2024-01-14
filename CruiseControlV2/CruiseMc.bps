@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+    <org.eventb.core.psStatus name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="57" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="57" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="58" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="update_speed_with_acc/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="58" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="update_speed_with_acc/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="58" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="update_speed_no_acc/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="58" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="start_engine/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="58" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="start_engine/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="58" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>
