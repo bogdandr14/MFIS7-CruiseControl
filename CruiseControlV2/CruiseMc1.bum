@@ -1,46 +1,165 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;org.eventb.codegen.ui.cgConfig" version="5">
     <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
-        <org.eventb.core.action name="(" org.eventb.core.assignment="cruise_system_state ≔ FALSE" org.eventb.core.label="act5"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="cruise_speed ≔ 50000" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act8"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ −1" org.eventb.core.label="act9"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="prev_distance_sensor ≔ −1" org.eventb.core.label="act10"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="vehicle_board_warning ≔ FALSE" org.eventb.core.label="act11"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="safety_distance_timer ≔ 0" org.eventb.core.label="act12"/>
     </org.eventb.core.event>
     <org.eventb.core.refinesMachine name="(" org.eventb.core.target="CruiseMc"/>
     <org.eventb.core.seesContext name=")" org.eventb.core.target="CruiseCtx1"/>
-    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.identifier="cruise_system_state"/>
-    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="." org.eventb.core.identifier="cruise_speed"/>
-    <org.eventb.core.invariant name="/" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv1" org.eventb.core.predicate="cruise_system_state ∈ BOOL"/>
-    <org.eventb.core.invariant name="3" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv2" org.eventb.core.predicate="cruise_speed ∈ CRUISE_MIN_SPEED‥CRUISE_MAX_SPEED "/>
-    <org.eventb.core.event name="4" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="update_speed_with_acc">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="update_speed_with_acc"/>
+    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.identifier="acc_pedal_command"/>
+    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="+" org.eventb.core.identifier="brake_pedal_command"/>
+    <org.eventb.core.invariant name="," org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv1" org.eventb.core.predicate="acc_pedal_command ∈ PEDAL_COMMANDS"/>
+    <org.eventb.core.invariant name="-" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv2" org.eventb.core.predicate="brake_pedal_command ∈ PEDAL_COMMANDS"/>
+    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="/" org.eventb.core.identifier="engine_state"/>
+    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="0" org.eventb.core.identifier="cruise_system_state"/>
+    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="3" org.eventb.core.identifier="cruise_speed"/>
+    <org.eventb.core.event name="5" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="input_change_cruise_state">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="input_change_cruise_state"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="5" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="update_speed_no_acc">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="update_speed_no_acc"/>
+    <org.eventb.core.event name="6" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="input_decrease_cruise_speed">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="input_decrease_cruise_speed"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="6" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="start_engine">
+    <org.eventb.core.event name="7" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="input_increase_cruise_speed">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="input_increase_cruise_speed"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="8" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="start_engine">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="start_engine"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="7" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="stop_engine">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="stop_engine"/>
-        <org.eventb.core.action name="(" org.eventb.core.assignment="cruise_system_state ≔ FALSE" org.eventb.core.label="act2"/>
+    <org.eventb.core.event name="9" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="stop_engine">
+        <org.eventb.core.refinesEvent name="(" org.eventb.core.target="stop_engine"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="8" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="increase_cruise_speed">
+    <org.eventb.core.event name="=" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_increase_acc_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = FALSE"/>
-        <org.eventb.core.action name=")" org.eventb.core.assignment="cruise_speed ≔ cruise_speed + 2500" org.eventb.core.label="act1"/>
-        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_speed + 2500 ≤ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="." org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 1"/>
+        <org.eventb.core.action name="2" org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="9" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="decrease_cruise_speed">
+    <org.eventb.core.event name="&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_increase_brake_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = FALSE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_speed − 2500 ≥ CRUISE_MIN_SPEED"/>
-        <org.eventb.core.action name="*" org.eventb.core.assignment="cruise_speed ≔ cruise_speed − 2500" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name=":" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="change_cruise_state">
+    <org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_decrease_acc_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.action name="(" org.eventb.core.assignment="cruise_system_state ≔ CHANGE_BOOL_STATE(cruise_system_state)" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 2"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
-    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name=";" org.eventb.core.identifier="engine_state"/>
-    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="=" org.eventb.core.identifier="acc_pedal_perc"/>
-    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="&gt;" org.eventb.core.identifier="brake_pedal_perc"/>
-    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="?" org.eventb.core.identifier="vehicle_speed"/>
+    <org.eventb.core.event name="B" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_decrease_brake_pedal_command">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 2"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="C" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_lift_acc_pedal_command">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 3"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="D" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_lift_brake_pedal_command">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 3"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="E" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv3" org.eventb.core.predicate="distance_sensor ∈ −1‥SAFETY_DISTANCE  "/>
+    <org.eventb.core.invariant name="F" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv4" org.eventb.core.predicate="vehicle_board_warning ∈ BOOL"/>
+    <org.eventb.core.invariant name="G" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv5" org.eventb.core.predicate="prev_distance_sensor ∈ −1‥SAFETY_DISTANCE  "/>
+    <org.eventb.core.invariant name="H" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv6" org.eventb.core.predicate="safety_distance_timer ∈ ℕ "/>
+    <org.eventb.core.variable name="I" org.eventb.core.identifier="distance_sensor"/>
+    <org.eventb.core.variable name="J" org.eventb.core.identifier="prev_distance_sensor"/>
+    <org.eventb.core.variable name="K" org.eventb.core.identifier="vehicle_board_warning"/>
+    <org.eventb.core.variable name="L" org.eventb.core.identifier="safety_distance_timer"/>
+    <org.eventb.core.event name="M" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_enters_safety_distance">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="prev_distance_sensor = −1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="distance_sensor ≠ −1"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="acc_pedal_command ≔ 3" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="vehicle_board_warning ≔ TRUE" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="N" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_before_timer">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor ≠ −1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer &lt; 10"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="-" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd5" org.eventb.core.predicate="prev_distance_sensor ≠ −1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="O" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_increased">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor ≠ −1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer ≥ 10"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name="+" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd5" org.eventb.core.predicate="distance_sensor &gt; prev_distance_sensor"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="brake_pedal_command ≔ 2" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="P" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_decreased">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor ≠ −1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer ≥ 10"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="distance_sensor ≤ prev_distance_sensor"/>
+        <org.eventb.core.guard name="+" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd5" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="brake_pedal_command ≔ 1" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Q" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_exits_safety_distance">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor = −1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="prev_distance_sensor ≠ −1"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 3" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="vehicle_board_warning ≔ FALSE" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="R" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_increase_distance_sensor">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor &lt; SAFETY_DISTANCE"/>
+        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="distance_sensor ≠ −1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="distance_sensor ≔ distance_sensor + 1" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="S" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_decrease_distance_sensor">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor &gt; 0"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ distance_sensor − 1" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="T" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_exits_range_distance_sensor">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = SAFETY_DISTANCE"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ −1" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="U" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="cruise_accelerate_vehicle">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = −1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="+" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="acc_pedal_command = 0"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="V" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="cruise_decelerate_vehicle">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = −1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 2" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="W" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_enters_range_distance_sensor">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = −1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ SAFETY_DISTANCE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
 </org.eventb.core.machineFile>

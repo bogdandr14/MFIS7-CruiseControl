@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.psFile>
-    <org.eventb.core.psStatus name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="38" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="38" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="38" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="increase_acc_pedal/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="increase_acc_pedal/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="increase_acc_pedal/acc_pedal_perc/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="increase_brake_pedal/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="increase_brake_pedal/brake_pedal_perc/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="decrease_acc_pedal/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="decrease_acc_pedal/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="decrease_acc_pedal/acc_pedal_perc/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="decrease_brake_pedal/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="42" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="decrease_brake_pedal/brake_pedal_perc/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="42" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lift_acc_pedal/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="43" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lift_acc_pedal/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="43" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lift_acc_pedal/acc_pedal_perc/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="43" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lift_brake_pedal/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="44" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lift_brake_pedal/brake_pedal_perc/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="44" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/act16/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="execute_decrease_acc_pedal_command/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="execute_decrease_brake_pedal_command/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="execute_increase_acc_pedal_command/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="15" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="execute_increase_brake_pedal_command/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="15" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="execute_lift_acc_pedal_command/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="16" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="execute_lift_brake_pedal_command/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="16" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="update_speed_with_acc_below/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="16" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="update_speed_no_acc/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="16" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="update_speed_with_acc_above/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="16" org.eventb.core.psManual="false"/>
 </org.eventb.core.psFile>

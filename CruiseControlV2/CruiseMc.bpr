@@ -1,74 +1,327 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.prFile version="1">
-    <org.eventb.core.prProof name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
+    <org.eventb.core.prProof name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p4,p3,p1">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p6,p5,p4,p2,p3">
             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
         </org.eventb.core.prRule>
         <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prIdent name="CRUISE_MAX_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="CRUISE_MIN_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="50000∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
+    <org.eventb.core.prProof name="update_speed_with_acc/grd1/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p4,p3,p1">
-            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p4,p3,p1">
-            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="50000∈50000 ‥ 180000"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p1" org.eventb.core.prHyps=""/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
             </org.eventb.core.prAnte>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈ℕ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="start_engine/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+    <org.eventb.core.prProof name="update_speed_with_acc/grd2/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="update_speed_with_acc/grd3/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="update_speed_no_acc/grd1/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="update_speed_no_acc/grd2/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="start_engine/grd1/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="stop_engine/grd1/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="stop_engine/grd2/GRD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/act3/SIM"/>
+    <org.eventb.core.prProof name="start_engine/act1/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="stop_engine/act1/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="increase_cruise_speed/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p10">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=FALSE" org.eventb.core.prHyps="p8">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p9,p5,p4,p3,p6,p7,p2">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
+        <org.eventb.core.prIdent name="CRUISE_MAX_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="CRUISE_MIN_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="cruise_speed" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cruise_speed+2500∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="engine_state∈BOOL"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_speed+2500≤CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cruise_system_state=FALSE"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="engine_state=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="decrease_cruise_speed/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p10">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=FALSE" org.eventb.core.prHyps="p8">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p9,p5,p4,p3,p6,p7,p2">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
+        <org.eventb.core.prIdent name="CRUISE_MAX_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="CRUISE_MIN_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="cruise_speed" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_speed − 2500≥CRUISE_MIN_SPEED"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="engine_state∈BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cruise_speed − 2500∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cruise_system_state=FALSE"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="engine_state=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="change_cruise_state/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
                 <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=FALSE" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="p1">
-                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p1"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p2">
-                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
-                                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
-                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
-                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps=""/>
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p2">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p1">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p3">
+                                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p3" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps=""/>
                                             </org.eventb.core.prAnte>
                                         </org.eventb.core.prRule>
                                     </org.eventb.core.prAnte>
@@ -78,8 +331,130 @@
                             </org.eventb.core.prAnte>
                         </org.eventb.core.prRule>
                     </org.eventb.core.prAnte>
-                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p8">
-                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p2"/>
+                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p7">
+                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="p1"/>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
+        <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="engine_state∈BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cruise_system_state∈dom(CHANGE_BOOL_STATE)∧CHANGE_BOOL_STATE∈BOOL ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cruise_system_state∈dom(CHANGE_BOOL_STATE)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="engine_state=TRUE"/>
+        <org.eventb.core.prExpr name="e0" org.eventb.core.expression="BOOL"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="update_speed_with_acc/act1/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
+                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p4"/>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLE_MAX_SPEED≠0">
+            <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬VEHICLE_MAX_SPEED=0">
+            <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="update_speed_no_acc/act1/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="start_engine/act2/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p1"/>
+                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
+            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℤ">
+            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="start_engine/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=FALSE" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p1">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p1"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="p2">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+                                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8">
+                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps=""/>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+                                    <org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p9">
+                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p2"/>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
@@ -87,183 +462,38 @@
         <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
         <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="engine_state=FALSE"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cruise_system_state∈BOOL">
+            <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="engine_state∈dom(CHANGE_BOOL_STATE)"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="FALSE∈dom(CHANGE_BOOL_STATE)"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="FALSE∈BOOL"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="engine_state∈dom(CHANGE_BOOL_STATE)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="FALSE∈dom(CHANGE_BOOL_STATE)"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="engine_state∈BOOL"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="FALSE∈BOOL"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⇸ BOOL"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈dom(CHANGE_BOOL_STATE)∧CHANGE_BOOL_STATE∈BOOL ⇸ BOOL"/>
         <org.eventb.core.prExpr name="e0" org.eventb.core.expression="BOOL"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv6/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="x,x0,x1" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.psManual="true">
+    <org.eventb.core.prProof name="input_increase_cruise_speed/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ∈ in goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
-                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ∈ in goal" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
-                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p2">
-                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ∈ in goal" org.eventb.core.prGoal="p2" org.eventb.core.prHyps="">
-                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p3">
-                                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ∈ in goal" org.eventb.core.prGoal="p3" org.eventb.core.prHyps="">
-                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
-                                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="">
-                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
-                                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="">
-                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
-                                                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
-                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
-                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps=""/>
-                                                            </org.eventb.core.prAnte>
-                                                        </org.eventb.core.prRule>
-                                                    </org.eventb.core.prAnte>
-                                                </org.eventb.core.prRule>
-                                            </org.eventb.core.prAnte>
-                                        </org.eventb.core.prRule>
-                                    </org.eventb.core.prAnte>
-                                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-                                </org.eventb.core.prRule>
-                            </org.eventb.core.prAnte>
-                            <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p8">
-                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees x,x0,x1)" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
-                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
-                                        <org.eventb.core.prIdent name="x" org.eventb.core.type="ℤ"/>
-                                        <org.eventb.core.prIdent name="x0" org.eventb.core.type="ℤ"/>
-                                        <org.eventb.core.prIdent name="x1" org.eventb.core.type="ℤ"/>
-                                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="">
-                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p10,p11">
-                                                <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ct goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="">
-                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p14" org.eventb.core.prHyps="p13"/>
-                                                </org.eventb.core.prRule>
-                                            </org.eventb.core.prAnte>
-                                        </org.eventb.core.prRule>
-                                    </org.eventb.core.prAnte>
-                                </org.eventb.core.prRule>
-                            </org.eventb.core.prAnte>
-                            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-                        </org.eventb.core.prRule>
-                    </org.eventb.core.prAnte>
-                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p15"/>
-                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-                </org.eventb.core.prRule>
-            </org.eventb.core.prAnte>
-            <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p16"/>
-            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}∈ℤ ↠ ℕ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="x ↦ x0∈{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}">
-            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℤ"/>
-            <org.eventb.core.prIdent name="x0" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="x ↦ x0∈{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}∧x ↦ x1∈{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}⇒x0=x1">
-            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℤ"/>
-            <org.eventb.core.prIdent name="x0" org.eventb.core.type="ℤ"/>
-            <org.eventb.core.prIdent name="x1" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="x ↦ x1∈{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}">
-            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℤ"/>
-            <org.eventb.core.prIdent name="x1" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="x0=x1">
-            <org.eventb.core.prIdent name="x0" org.eventb.core.type="ℤ"/>
-            <org.eventb.core.prIdent name="x1" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="⊥"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="ran({x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x})=ℕ"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}⊆ℤ × ℕ"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="(∀x⦂ℤ·x∈ℤ ∖ ℕ⇒⊤)∧(∀x⦂ℤ·x∈ℕ⇒⊤∧x∈ℕ)"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}∈ℤ ⤀ ℕ"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="dom({x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x})=ℤ"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}∈ℤ ↔ ℕ"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="(∀x⦂ℤ·x∈ℤ ∖ ℕ⇒x∈ℤ)∧(∀x⦂ℤ·x∈ℕ⇒x∈ℤ∧x∈ℕ)"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬x0=x1">
-            <org.eventb.core.prIdent name="x0" org.eventb.core.type="ℤ"/>
-            <org.eventb.core.prIdent name="x1" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}∈ℤ ⇸ ℕ"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="∀x⦂ℤ,x0⦂ℤ,x1⦂ℤ·x ↦ x0∈{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}∧x ↦ x1∈{x⦂ℤ·x∈ℤ ∖ ℕ ∣ x ↦ 0}∪{x⦂ℤ·x∈ℕ ∣ x ↦ x}⇒x0=x1"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.contrL1"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv7/INV"/>
-    <org.eventb.core.prProof name="update_speed_no_acc/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-                    <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_perc=0" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p7">
-                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p14">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p7"/>
-                                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p14" org.eventb.core.prHyps="">
-                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15">
-                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p2,p11,p6,p1,p3,p4,p10,p9,p8,p12">
-                                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
-                                        </org.eventb.core.prRule>
-                                    </org.eventb.core.prAnte>
-                                </org.eventb.core.prRule>
-                            </org.eventb.core.prAnte>
-                        </org.eventb.core.prRule>
-                    </org.eventb.core.prAnte>
-                </org.eventb.core.prRule>
-            </org.eventb.core.prAnte>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="SPEED_UPDATE" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="acc_pedal_perc" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="brake_pedal_perc" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="cruise_speed" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="vehicle_speed+50∗(0 − vehicle_speed∗100 ÷ VEHICLE_MAX_SPEED)∈ℕ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cruise_speed∈50000 ‥ 180000"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="vehicle_speed+(−50∗(vehicle_speed∗100 ÷ VEHICLE_MAX_SPEED))∈ℕ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="vehicle_speed+50∗(acc_pedal_perc − vehicle_speed∗100 ÷ VEHICLE_MAX_SPEED)∈ℕ"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="engine_state∈BOOL">
-            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="VEHICLE_MAX_SPEED≠0"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬VEHICLE_MAX_SPEED=0"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="acc_pedal_perc=0"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="SPEED_UPDATE∈ℤ → ℕ"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="vehicle_speed∈ℕ"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="update_speed_no_acc/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p10">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p11"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_perc=0" org.eventb.core.prHyps="p6">
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=FALSE" org.eventb.core.prHyps="p8">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p6"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p2,p8,p5,p1,p3,p4,p7">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p9,p6,p5,p3,p4,p7,p2">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -273,68 +503,41 @@
             </org.eventb.core.prAnte>
         </org.eventb.core.prRule>
         <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="acc_pedal_perc" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="brake_pedal_perc" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="CRUISE_MAX_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="CRUISE_MIN_SPEED" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="cruise_speed" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="engine_state∈BOOL">
-            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLE_MAX_SPEED≠0"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬VEHICLE_MAX_SPEED=0"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="acc_pedal_perc=0"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="vehicle_speed∈ℤ">
-            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="cruise_speed∈50000 ‥ 180000"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cruise_speed+2500∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="engine_state∈BOOL"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_speed+2500≤CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cruise_system_state=FALSE"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="engine_state=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="update_speed_with_acc/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="" org.eventb.core.psManual="true">
+    <org.eventb.core.prProof name="input_decrease_cruise_speed/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ∈ in vehicle_speed∈ℕ" org.eventb.core.prHyps="">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p10">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2"/>
-                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2"/>
-                    </org.eventb.core.prAnte>
-                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-                </org.eventb.core.prRule>
-            </org.eventb.core.prAnte>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="0≤vehicle_speed">
-            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state∈BOOL">
-            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_speed∈ℕ">
-            <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="update_speed_with_acc/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-                    <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p10">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=FALSE" org.eventb.core.prHyps="p8">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p4,p9,p8,p1,p5,p6,p2,p7,p3">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
+                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p9,p6,p5,p3,p4,p7,p2">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -344,138 +547,76 @@
             </org.eventb.core.prAnte>
         </org.eventb.core.prRule>
         <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="acc_pedal_perc" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="brake_pedal_perc" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="CRUISE_MAX_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="CRUISE_MIN_SPEED" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="cruise_speed" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
         <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
-        <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cruise_speed − 2500≥CRUISE_MIN_SPEED"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
         <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="vehicle_speed∈0 ‥ VEHICLE_MAX_SPEED"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="vehicle_speed&lt;VEHICLE_MAX_SPEED"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="acc_pedal_perc&gt;0"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLE_MAX_SPEED≠0"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬VEHICLE_MAX_SPEED=0"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cruise_speed − 2500∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cruise_system_state=FALSE"/>
         <org.eventb.core.prPred name="p10" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="start_engine/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+    <org.eventb.core.prProof name="input_change_cruise_state/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p1" org.eventb.core.prHyps=""/>
-            </org.eventb.core.prAnte>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="1000∈ℕ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p4,p3,p1">
-            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈0 ‥ VEHICLE_MAX_SPEED"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="update_speed_with_acc/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-                    <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p0">
+                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p2">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p1">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p3">
+                                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p3" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps=""/>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                    <org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+                                    <org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+                                </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
                         </org.eventb.core.prRule>
                     </org.eventb.core.prAnte>
-                </org.eventb.core.prRule>
-            </org.eventb.core.prAnte>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED≠0">
-            <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬VEHICLE_MAX_SPEED=0">
-            <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="update_speed_no_acc/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p1"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_perc=0" org.eventb.core.prHyps="p0">
-                    <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p0"/>
-                    </org.eventb.core.prAnte>
-                </org.eventb.core.prRule>
-            </org.eventb.core.prAnte>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="acc_pedal_perc" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="engine_state∈BOOL">
-            <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="acc_pedal_perc=0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="start_engine/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=FALSE" org.eventb.core.prHyps="p3">
-                    <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p8,p7,p1,p5,p6,p2">
-                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
-                        </org.eventb.core.prRule>
+                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p7">
+                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="p1"/>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
         </org.eventb.core.prRule>
         <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="acc_pedal_perc" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="brake_pedal_perc" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
         <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
-        <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="vehicle_speed∈0 ‥ VEHICLE_MAX_SPEED"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="engine_state=FALSE"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="1000∈0 ‥ VEHICLE_MAX_SPEED"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="engine_state∈BOOL"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cruise_system_state∈dom(CHANGE_BOOL_STATE)∧CHANGE_BOOL_STATE∈BOOL ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cruise_system_state∈dom(CHANGE_BOOL_STATE)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⇸ BOOL"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="engine_state=TRUE"/>
+        <org.eventb.core.prExpr name="e0" org.eventb.core.expression="BOOL"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>
