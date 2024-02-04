@@ -261,23 +261,23 @@
 		\Action{act4}{$vehicle\_board\_warning \bcmeq{} TRUE$}{true}{\\se trimite un semnal de atentionare soferului}
 	}
 }
-\EVT{vehicle\_in\_safety\_distance\_before\_timer}{false}{ordinary}{}{\\eveniment declansat cand masina se afla in distanta de siguranta de mai putin de 10 secunde}{
+\EVT{vehicle\_in\_safety\_distance\_before\_timer}{false}{ordinary}{}{\\eveniment declansat cand masina se afla in distanta de siguranta de mai putin de 1 secunda}{
 	\GUARDS{false}{
 		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{true}{\\o masina se afla in fata}
-		\Guard{grd2}{false}{$safety\_distance\_timer < 10$}{true}{\\cronometrul nu a atins 10 secunde}
+		\Guard{grd2}{false}{$safety\_distance\_timer < 10$}{true}{\\cronometrul nu a atins o secunda}
 		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
 		\Guard{grd4}{false}{$engine\_state = TRUE$}{true}{}
 		\Guard{grd5}{false}{$prev\_distance\_sensor \neq{} -1$}{true}{\\vehiculul a fost detectat anterior}
 	}
 	\ACTIONS{true}{
-		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{true}{\\se incrementeaza cronometrul cu o secunda}
+		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{true}{\\se incrementeaza cronometrul cu 0.1 secunde}
 		\Action{act2}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{true}{\\actualizam distanta pana la vehicul}
 	}
 }
 \EVT{vehicle\_in\_safety\_distance\_increased}{false}{ordinary}{}{\\vehiculul din fata se distanteaza}{
 	\GUARDS{false}{
 		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{true}{}
-		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{true}{\\vehiculul se afla in distanta de siguranta de mai mult de 10 secunde}
+		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{true}{\\vehiculul se afla in distanta de siguranta de mai mult de o secunda}
 		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
 		\Guard{grd4}{false}{$engine\_state = TRUE$}{true}{}
 		\Guard{grd5}{false}{$distance\_sensor > prev\_distance\_sensor$}{true}{\\vehiculul din fata se distanteaza de vehiculul nostru}
@@ -291,7 +291,7 @@
 \EVT{vehicle\_in\_safety\_distance\_decreased}{false}{ordinary}{}{\\vehiculul din fata se apropie}{
 	\GUARDS{false}{
 		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{true}{}
-		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{true}{\\vehiculul din fata se afla acolo de cel putin 10 secunde}
+		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{true}{\\vehiculul din fata se afla acolo de cel putin o secunda}
 		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
 		\Guard{grd4}{false}{$distance\_sensor \leq{} prev\_distance\_sensor$}{true}{\\vehiculul din fata se apropie de vehiculul nostru}
 		\Guard{grd5}{false}{$engine\_state = TRUE$}{true}{}
@@ -333,7 +333,7 @@
 		\Guard{grd3}{false}{$distance\_sensor > 0$}{true}{}
 	}
 	\ACTIONS{true}{
-		\Action{act1}{$distance\_sensor \bcmeq{} distance\_sensor - 1$}{true}{\\scade valoarea detectata cu 1 metru (masina din fata s-a distantat cu 1 metru)}
+		\Action{act1}{$distance\_sensor \bcmeq{} distance\_sensor - 1$}{true}{\\scade valoarea detectata cu 1 metru (masina din fata s-a apropiat cu 1 metru)}
 	}
 }
 \EVT{input\_exits\_range\_distance\_sensor}{false}{ordinary}{}{\\resetare senzor cand masina din fata iese din zona de detectie}{
@@ -554,20 +554,20 @@
 \EVT{vehicle\_in\_safety\_distance\_before\_timer}{true}{ordinary}{vehicle\_in\_safety\_distance\_before\_timer}{}{
 	\GUARDS{false}{
 		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{false}{\\o masina se afla in fata}
-		\Guard{grd2}{false}{$safety\_distance\_timer < 10$}{false}{\\cronometrul nu a atins 10 secunde}
+		\Guard{grd2}{false}{$safety\_distance\_timer < 10$}{false}{\\cronometrul nu a atins o secunda}
 		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{false}{}
 		\Guard{grd4}{false}{$engine\_state = TRUE$}{false}{}
 		\Guard{grd5}{false}{$prev\_distance\_sensor \neq{} -1$}{false}{\\vehiculul a fost detectat anterior}
 	}
 	\ACTIONS{true}{
-		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{false}{\\se incrementeaza cronometrul cu o secunda}
+		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{false}{\\se incrementeaza cronometrul cu 0.1 secunde}
 		\Action{act2}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{false}{\\actualizam distanta pana la vehicul}
 	}
 }
 \EVT{vehicle\_in\_safety\_distance\_increased}{true}{ordinary}{vehicle\_in\_safety\_distance\_increased}{}{
 	\GUARDS{false}{
 		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{false}{}
-		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{false}{\\vehiculul se afla in distanta de siguranta de mai mult de 10 secunde}
+		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{false}{\\vehiculul se afla in distanta de siguranta de mai mult de o secunda}
 		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{false}{}
 		\Guard{grd4}{false}{$engine\_state = TRUE$}{false}{}
 		\Guard{grd5}{false}{$distance\_sensor > prev\_distance\_sensor$}{false}{\\vehiculul din fata se distanteaza de vehiculul nostru}
@@ -582,7 +582,7 @@
 \EVT{vehicle\_in\_safety\_distance\_decreased}{true}{ordinary}{vehicle\_in\_safety\_distance\_decreased}{}{
 	\GUARDS{false}{
 		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{false}{}
-		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{false}{\\vehiculul din fata se afla acolo de cel putin 10 secunde}
+		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{false}{\\vehiculul din fata se afla acolo de cel putin o secunda}
 		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{false}{}
 		\Guard{grd4}{false}{$distance\_sensor \leq{} prev\_distance\_sensor$}{false}{\\vehiculul din fata se apropie de vehiculul nostru}
 		\Guard{grd5}{false}{$engine\_state = TRUE$}{false}{}
@@ -625,7 +625,7 @@
 		\Guard{grd3}{false}{$distance\_sensor > 0$}{false}{}
 	}
 	\ACTIONS{true}{
-		\Action{act1}{$distance\_sensor \bcmeq{} distance\_sensor - 1$}{false}{\\scade valoarea detectata cu 1 metru (masina din fata s-a distantat cu 1 metru)}
+		\Action{act1}{$distance\_sensor \bcmeq{} distance\_sensor - 1$}{false}{\\scade valoarea detectata cu 1 metru (masina din fata s-a apropiat cu 1 metru)}
 	}
 }
 \EVT{input\_exits\_range\_distance\_sensor}{true}{ordinary}{input\_exits\_range\_distance\_sensor}{}{
