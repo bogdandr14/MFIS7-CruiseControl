@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;org.eventb.codegen.ui.cgConfig" version="5">
     <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
-        <org.eventb.core.action name="(" org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act7"/>
-        <org.eventb.core.action name=")" org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act8"/>
-        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ −1" org.eventb.core.label="act9"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.comment="nu se transmite niciun semnal actuatorului de accelerare" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.comment="nu se transmite niciun semnal actuatorului de franare" org.eventb.core.label="act8"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ −1" org.eventb.core.comment="se asuma faptul ca nu este nicio masina in disanta de siguranta" org.eventb.core.label="act9"/>
         <org.eventb.core.action name="+" org.eventb.core.assignment="prev_distance_sensor ≔ −1" org.eventb.core.label="act10"/>
         <org.eventb.core.action name="," org.eventb.core.assignment="vehicle_board_warning ≔ FALSE" org.eventb.core.label="act11"/>
         <org.eventb.core.action name="-" org.eventb.core.assignment="safety_distance_timer ≔ 0" org.eventb.core.label="act12"/>
     </org.eventb.core.event>
     <org.eventb.core.refinesMachine name="(" org.eventb.core.target="CruiseMc"/>
     <org.eventb.core.seesContext name=")" org.eventb.core.target="CruiseCtx1"/>
-    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.identifier="acc_pedal_command"/>
-    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="+" org.eventb.core.identifier="brake_pedal_command"/>
+    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.comment="stocheaza semnalul pentru actuatorul de acceleratie" org.eventb.core.identifier="acc_pedal_command"/>
+    <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="+" org.eventb.core.comment="stocheaza semnalul pentru actuatorul de franare" org.eventb.core.identifier="brake_pedal_command"/>
     <org.eventb.core.invariant name="," org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv1" org.eventb.core.predicate="acc_pedal_command ∈ PEDAL_COMMANDS"/>
     <org.eventb.core.invariant name="-" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv2" org.eventb.core.predicate="brake_pedal_command ∈ PEDAL_COMMANDS"/>
     <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="/" org.eventb.core.identifier="engine_state"/>
@@ -35,126 +35,126 @@
     <org.eventb.core.event name="=" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_increase_acc_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
-        <org.eventb.core.guard name="." org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 1"/>
-        <org.eventb.core.action name="2" org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="." org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="comanda curenta este de accelerare" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 1"/>
+        <org.eventb.core.action name="2" org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.comment="reseteaza comanda" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_increase_brake_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 1"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="comanda curenta pentru actuatorul de franare este apasare" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.comment="reseteaza comanda" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_decrease_acc_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 2"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="comanda curenta pentru actuatorul de acceleratie este scadere apasare" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 2"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.comment="resetare comanda" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="B" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_decrease_brake_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 2"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="comanda curenta pentru actuatorul de franare este apasare" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 2"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.comment="reseteaza comanda" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="C" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_lift_acc_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 3"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="comanda curenta pentru actuatorul de accelerare este eliminare apasare" org.eventb.core.label="grd3" org.eventb.core.predicate="acc_pedal_command = 3"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="acc_pedal_command ≔ 0" org.eventb.core.comment="reseteaza comanda" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="D" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="execute_lift_brake_pedal_command">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 3"/>
-        <org.eventb.core.action name="+" org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="comanda curenta pentru actuatorul de franare este eliminare apasare" org.eventb.core.label="grd3" org.eventb.core.predicate="brake_pedal_command = 3"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="brake_pedal_command ≔ 0" org.eventb.core.comment="reseteaza comanda" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
-    <org.eventb.core.invariant name="E" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv3" org.eventb.core.predicate="distance_sensor ∈ −1‥SAFETY_DISTANCE  "/>
+    <org.eventb.core.invariant name="E" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.comment="valoarea de -1 este valoarea returnata de senzorul de distanta atat timp cat nu avem un vehicul in distanta de siguranta" org.eventb.core.label="inv3" org.eventb.core.predicate="distance_sensor ∈ −1‥SAFETY_DISTANCE  "/>
     <org.eventb.core.invariant name="F" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv4" org.eventb.core.predicate="vehicle_board_warning ∈ BOOL"/>
     <org.eventb.core.invariant name="G" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv5" org.eventb.core.predicate="prev_distance_sensor ∈ −1‥SAFETY_DISTANCE  "/>
     <org.eventb.core.invariant name="H" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv6" org.eventb.core.predicate="safety_distance_timer ∈ ℕ "/>
-    <org.eventb.core.variable name="I" org.eventb.core.identifier="distance_sensor"/>
-    <org.eventb.core.variable name="J" org.eventb.core.identifier="prev_distance_sensor"/>
+    <org.eventb.core.variable name="I" org.eventb.core.comment="semnal pentru distanta curenta fata de vehiculul din fata" org.eventb.core.identifier="distance_sensor"/>
+    <org.eventb.core.variable name="J" org.eventb.core.comment="stocare pentru distanta anterioara fata de vehiculul din fata" org.eventb.core.identifier="prev_distance_sensor"/>
     <org.eventb.core.variable name="K" org.eventb.core.identifier="vehicle_board_warning"/>
     <org.eventb.core.variable name="L" org.eventb.core.identifier="safety_distance_timer"/>
     <org.eventb.core.event name="M" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_enters_safety_distance">
-        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="prev_distance_sensor = −1"/>
-        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="distance_sensor ≠ −1"/>
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="la momentul anterior nu exista un vehicul in fata" org.eventb.core.label="grd1" org.eventb.core.predicate="prev_distance_sensor = −1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="o masina a patruns in distanta de siguranta" org.eventb.core.label="grd2" org.eventb.core.predicate="distance_sensor ≠ −1"/>
         <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.action name="+" org.eventb.core.assignment="acc_pedal_command ≔ 3" org.eventb.core.label="act1"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ 0" org.eventb.core.label="act2"/>
-        <org.eventb.core.action name="-" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act3"/>
-        <org.eventb.core.action name="." org.eventb.core.assignment="vehicle_board_warning ≔ TRUE" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="acc_pedal_command ≔ 3" org.eventb.core.comment="se trimite comanda pentru eliminarea apasarii acceleratiei" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ 0" org.eventb.core.comment="se seteaza cronometrul pentru distanta de siguranta" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.comment="se stocheaza distanta curenta ca valoare anterioara" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="vehicle_board_warning ≔ TRUE" org.eventb.core.comment="se trimite un semnal de atentionare soferului" org.eventb.core.label="act4"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="N" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_before_timer">
-        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor ≠ −1"/>
-        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer &lt; 10"/>
+    <org.eventb.core.event name="N" org.eventb.core.comment="eveniment declansat cand masina se afla in distanta de siguranta de mai putin de 10 secunde" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_before_timer">
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="o masina se afla in fata" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor ≠ −1"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="cronometrul nu a atins 10 secunde" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer &lt; 10"/>
         <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.action name="+" org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.label="act1"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act2"/>
-        <org.eventb.core.guard name="-" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd5" org.eventb.core.predicate="prev_distance_sensor ≠ −1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.comment="se incrementeaza cronometrul cu o secunda" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.comment="actualizam distanta pana la vehicul" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="-" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="vehiculul a fost detectat anterior" org.eventb.core.label="grd5" org.eventb.core.predicate="prev_distance_sensor ≠ −1"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="O" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_increased">
+    <org.eventb.core.event name="O" org.eventb.core.comment="vehiculul din fata se distanteaza" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_increased">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor ≠ −1"/>
-        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer ≥ 10"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="vehiculul se afla in distanta de siguranta de mai mult de 10 secunde" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer ≥ 10"/>
         <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name="+" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd5" org.eventb.core.predicate="distance_sensor &gt; prev_distance_sensor"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="+" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="vehiculul din fata se distanteaza de vehiculul nostru" org.eventb.core.label="grd5" org.eventb.core.predicate="distance_sensor &gt; prev_distance_sensor"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.comment="se incrementeaza cronometrul" org.eventb.core.label="act1"/>
         <org.eventb.core.action name="-" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act2"/>
-        <org.eventb.core.action name="." org.eventb.core.assignment="brake_pedal_command ≔ 2" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="brake_pedal_command ≔ 2" org.eventb.core.comment="se trimite comanda de scadere a apasarii franei" org.eventb.core.label="act3"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="P" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_decreased">
+    <org.eventb.core.event name="P" org.eventb.core.comment="vehiculul din fata se apropie" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_in_safety_distance_decreased">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor ≠ −1"/>
-        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer ≥ 10"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="vehiculul din fata se afla acolo de cel putin 10 secunde" org.eventb.core.label="grd2" org.eventb.core.predicate="safety_distance_timer ≥ 10"/>
         <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
-        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="distance_sensor ≤ prev_distance_sensor"/>
+        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="vehiculul din fata se apropie de vehiculul nostru" org.eventb.core.label="grd4" org.eventb.core.predicate="distance_sensor ≤ prev_distance_sensor"/>
         <org.eventb.core.guard name="+" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd5" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="safety_distance_timer ≔ safety_distance_timer + 1" org.eventb.core.comment="se incrementeaza cronometrul" org.eventb.core.label="act1"/>
         <org.eventb.core.action name="-" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act2"/>
-        <org.eventb.core.action name="." org.eventb.core.assignment="brake_pedal_command ≔ 1" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="brake_pedal_command ≔ 1" org.eventb.core.comment="se trimite comanda de crestere a franarii" org.eventb.core.label="act3"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="Q" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_exits_safety_distance">
+    <org.eventb.core.event name="Q" org.eventb.core.comment="vehiculul din fata iese din detectia senzorului" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="vehicle_exits_safety_distance">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="distance_sensor = −1"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="prev_distance_sensor ≠ −1"/>
         <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.action name="+" org.eventb.core.assignment="prev_distance_sensor ≔ distance_sensor" org.eventb.core.label="act1"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 3" org.eventb.core.label="act2"/>
-        <org.eventb.core.action name="-" org.eventb.core.assignment="vehicle_board_warning ≔ FALSE" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="brake_pedal_command ≔ 3" org.eventb.core.comment="se trimite comanda de eliminare a apasarii franei" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="vehicle_board_warning ≔ FALSE" org.eventb.core.comment="se sterge avertizarea trimisa soferului" org.eventb.core.label="act3"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="R" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_increase_distance_sensor">
+    <org.eventb.core.event name="R" org.eventb.core.comment="vehiculul din fata se distanteaza (update valoare senzor)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_increase_distance_sensor">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor &lt; SAFETY_DISTANCE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="distanta pana la vehiculul din fata este mai mica decat valoarea prestabilita a distantei de siguranta" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor &lt; SAFETY_DISTANCE"/>
         <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="distance_sensor ≠ −1"/>
-        <org.eventb.core.action name="+" org.eventb.core.assignment="distance_sensor ≔ distance_sensor + 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="distance_sensor ≔ distance_sensor + 1" org.eventb.core.comment="creste valoarea detectata cu 1 metru (masina din fata s-a distantat cu 1 metru)" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="S" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_decrease_distance_sensor">
+    <org.eventb.core.event name="S" org.eventb.core.comment="vehiculul din fata se apropie (update valoare senzor)" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_decrease_distance_sensor">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor &gt; 0"/>
-        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ distance_sensor − 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ distance_sensor − 1" org.eventb.core.comment="scade valoarea detectata cu 1 metru (masina din fata s-a distantat cu 1 metru)" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="T" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_exits_range_distance_sensor">
+    <org.eventb.core.event name="T" org.eventb.core.comment="resetare senzor cand masina din fata iese din zona de detectie" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_exits_range_distance_sensor">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = SAFETY_DISTANCE"/>
-        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ −1" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="exista o distanta de cel putin SAFETY_DISTANCE metri intre masina noastra si cea din fata" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = SAFETY_DISTANCE"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="distance_sensor ≔ −1" org.eventb.core.comment="reseteaza senzor pe valoarea &quot;nedetectat&quot;" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="U" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="cruise_accelerate_vehicle">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = −1"/>
-        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="nu este nicio masina detectata in fata" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = −1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 1" org.eventb.core.comment="accelereaza vehiculul" org.eventb.core.label="act1"/>
         <org.eventb.core.guard name="+" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd4" org.eventb.core.predicate="acc_pedal_command = 0"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="V" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="cruise_decelerate_vehicle">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>
         <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = −1"/>
-        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 2" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="nu este nicio masina in fata" org.eventb.core.label="grd3" org.eventb.core.predicate="distance_sensor = −1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="acc_pedal_command ≔ 2" org.eventb.core.comment="scade nivelul de accelerare" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="W" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_enters_range_distance_sensor">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="cruise_system_state = TRUE"/>

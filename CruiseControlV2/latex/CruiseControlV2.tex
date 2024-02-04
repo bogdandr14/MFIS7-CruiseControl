@@ -1,0 +1,709 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage{bsymb,b2latex}
+\begin{document}
+\MultiTitle{CruiseControlV2}
+\MultiHeader{CONTEXT}{CruiseCtx}
+\CONTEXT{CruiseCtx}{}{}
+\CONSTANTS{
+	\Constant{CHANGE\_BOOL\_STATE}{procedura pentru alternarea unei valori bool}
+	\Constant{CRUISE\_MAX\_SPEED}{viteza maxima admisa a sistemului de croaziera}
+	\Constant{CRUISE\_MIN\_SPEED}{viteza minima admisa a sistemului de croaziera}
+}
+\AXIOMS{
+	\Axiom{axm1}{false}{$CHANGE\_BOOL\_STATE \in{} BOOL \tbij{} BOOL$}{}
+	\Axiom{axm2}{false}{$CHANGE\_BOOL\_STATE = \{TRUE \mapsto{} FALSE, FALSE \mapsto{} TRUE\}$}{}
+	\Axiom{axm3}{false}{$CRUISE\_MAX\_SPEED \in{} \nat{} $}{}
+	\Axiom{axm4}{false}{$CRUISE\_MAX\_SPEED = 180000$}{\\valoarea maxima a vitezei de croaziera ce poate fi setata este de 180km/h}
+	\Axiom{axm5}{false}{$CRUISE\_MIN\_SPEED \in{} \nat{} $}{}
+	\Axiom{axm6}{false}{$CRUISE\_MIN\_SPEED = 10000$}{\\valoarea minima a vitezei de croaziera ce poate fi setata este de 10km/h}
+}
+\END
+\MultiHeader{CONTEXT}{CruiseCtx1}
+\CONTEXT{CruiseCtx1}{CruiseCtx}{}
+\CONSTANTS{
+	\Constant{PEDAL\_COMMANDS}{comenzi posibile pentru apasarea pedalelor}
+	\Constant{SAFETY\_DISTANCE}{}
+}
+\AXIOMS{
+	\Axiom{axm1}{false}{$PEDAL\_COMMANDS = 0\upto{}3 $}{\\conventie: 0 - nicio comanda; 1 - crestere nivel apasare; 2 - scadere nivel apasare; 3 - scadere forta de apasare la 0}
+	\Axiom{axm2}{false}{$SAFETY\_DISTANCE \in{} \nat{}$}{}
+	\Axiom{axm3}{false}{$SAFETY\_DISTANCE = 50$}{\\distanta de siguranta are valoarea prestabilita de 50 de metri}
+}
+\END
+\MultiHeader{CONTEXT}{CruiseCtx2}
+\CONTEXT{CruiseCtx2}{CruiseCtx1}{}
+\CONSTANTS{
+	\Constant{VEHICLE\_MAX\_SPEED}{}
+}
+\AXIOMS{
+	\Axiom{axm1}{false}{$VEHICLE\_MAX\_SPEED \in{} \nat{} $}{}
+	\Axiom{axm2}{false}{$VEHICLE\_MAX\_SPEED = 200000$}{\\prin constructie vehiculul nostru are o viteza maxima de 200km/h}
+}
+\END
+\MultiHeader{MACHINE}{CruiseMc}
+\MACHINE{CruiseMc}{}{CruiseCtx}{}
+\VARIABLES{
+	\Variable{cruise\_system\_state}{}
+	\Variable{cruise\_speed}{}
+	\Variable{engine\_state}{}
+}
+\INVARIANTS{
+	\Invariant{inv1}{false}{$cruise\_system\_state \in{} BOOL$}{}
+	\Invariant{inv2}{false}{$cruise\_speed \in{} CRUISE\_MIN\_SPEED\upto{}CRUISE\_MAX\_SPEED $}{}
+	\Invariant{inv3}{false}{$engine\_state \in{} BOOL$}{}
+}
+\EVENTS{
+\INITIALISATION{false}{}{
+	\ACTIONS{false}{
+		\Action{act1}{$cruise\_system\_state \bcmeq{} FALSE$}{true}{\\initial sistemul de croaziera este oprit}
+		\Action{act2}{$cruise\_speed \bcmeq{} 50000$}{true}{\\viteza de croaziera prestabilita este de 50km/h}
+		\Action{act3}{$engine\_state \bcmeq{} FALSE$}{true}{\\motorul este oprit}
+	}
+}
+\EVT{start\_engine}{false}{ordinary}{}{\\porneste motorul daca este oprit}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = FALSE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$engine\_state \bcmeq{} CHANGE\_BOOL\_STATE(engine\_state)$}{true}{}
+	}
+}
+\EVT{stop\_engine}{false}{ordinary}{}{\\opreste motorul si sistemul de croaziera daca motorul este pornit}{
+	\GUARDS{false}{
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$cruise\_system\_state \bcmeq{} FALSE$}{true}{}
+		\Action{act3}{$engine\_state \bcmeq{} FALSE$}{true}{}
+	}
+}
+\EVT{input\_increase\_cruise\_speed}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{\\motorul este pornit}
+		\Guard{grd2}{false}{$cruise\_system\_state = FALSE$}{true}{\\sistemul de croaziera este oprit}
+		\Guard{grd3}{false}{$cruise\_speed + 2500 \leq{} CRUISE\_MAX\_SPEED$}{true}{\\verificam daca cresterea vitezei de croaziera depaseste viteza maxima}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_speed \bcmeq{} cruise\_speed + 2500$}{true}{\\se adauga valoarea 2.5km/h la viteza de croaziera}
+	}
+}
+\EVT{input\_decrease\_cruise\_speed}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{\\motorul este pornit}
+		\Guard{grd2}{false}{$cruise\_system\_state = FALSE$}{true}{\\sistemul de croaziera este oprit}
+		\Guard{grd3}{false}{$cruise\_speed - 2500 \geq{} CRUISE\_MIN\_SPEED$}{true}{\\verificam daca scaderea valorii vitezei scade sub limita minima}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_speed \bcmeq{} cruise\_speed - 2500$}{true}{\\reducem viteza de croaziera cu 2.5km/h}
+	}
+}
+\EVT{input\_change\_cruise\_state}{false}{ordinary}{}{\\porneste sistemul de croaziera odata cu pornirea motorului}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_system\_state \bcmeq{} CHANGE\_BOOL\_STATE(cruise\_system\_state)$}{true}{}
+	}
+}
+}
+\END
+\MultiHeader{MACHINE}{CruiseMc1}
+\MACHINE{CruiseMc1}{CruiseMc}{CruiseCtx1}{}
+\VARIABLES{
+	\Variable{acc\_pedal\_command}{stocheaza semnalul pentru actuatorul de acceleratie}
+	\Variable{brake\_pedal\_command}{stocheaza semnalul pentru actuatorul de franare}
+	\Variable{engine\_state}{}
+	\Variable{cruise\_system\_state}{}
+	\Variable{cruise\_speed}{}
+	\Variable{distance\_sensor}{semnal pentru distanta curenta fata de vehiculul din fata}
+	\Variable{prev\_distance\_sensor}{stocare pentru distanta anterioara fata de vehiculul din fata}
+	\Variable{vehicle\_board\_warning}{}
+	\Variable{safety\_distance\_timer}{}
+}
+\INVARIANTS{
+	\Invariant{inv1}{false}{$acc\_pedal\_command \in{} PEDAL\_COMMANDS$}{}
+	\Invariant{inv2}{false}{$brake\_pedal\_command \in{} PEDAL\_COMMANDS$}{}
+	\Invariant{inv3}{false}{$distance\_sensor \in{} -1\upto{}SAFETY\_DISTANCE  $}{\\valoarea de -1 este valoarea returnata de senzorul de distanta atat timp cat nu avem un vehicul in distanta de siguranta}
+	\Invariant{inv4}{false}{$vehicle\_board\_warning \in{} BOOL$}{}
+	\Invariant{inv5}{false}{$prev\_distance\_sensor \in{} -1\upto{}SAFETY\_DISTANCE  $}{}
+	\Invariant{inv6}{false}{$safety\_distance\_timer \in{} \nat{} $}{}
+}
+\EVENTS{
+\INITIALISATION{true}{}{
+	\ACTIONS{false}{
+		\Action{act1}{$cruise\_system\_state \bcmeq{} FALSE$}{false}{\\initial sistemul de croaziera este oprit}
+		\Action{act2}{$cruise\_speed \bcmeq{} 50000$}{false}{\\viteza de croaziera prestabilita este de 50km/h}
+		\Action{act3}{$engine\_state \bcmeq{} FALSE$}{false}{\\motorul este oprit}
+		\Action{act7}{$acc\_pedal\_command \bcmeq{} 0$}{true}{\\nu se transmite niciun semnal actuatorului de accelerare}
+		\Action{act8}{$brake\_pedal\_command \bcmeq{} 0$}{true}{\\nu se transmite niciun semnal actuatorului de franare}
+		\Action{act9}{$distance\_sensor \bcmeq{} -1$}{true}{\\se asuma faptul ca nu este nicio masina in disanta de siguranta}
+		\Action{act10}{$prev\_distance\_sensor \bcmeq{} -1$}{true}{}
+		\Action{act11}{$vehicle\_board\_warning \bcmeq{} FALSE$}{true}{}
+		\Action{act12}{$safety\_distance\_timer \bcmeq{} 0$}{true}{}
+	}
+}
+\EVT{input\_change\_cruise\_state}{true}{ordinary}{input\_change\_cruise\_state}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_system\_state \bcmeq{} CHANGE\_BOOL\_STATE(cruise\_system\_state)$}{false}{}
+	}
+}
+\EVT{input\_decrease\_cruise\_speed}{true}{ordinary}{input\_decrease\_cruise\_speed}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{\\motorul este pornit}
+		\Guard{grd2}{false}{$cruise\_system\_state = FALSE$}{false}{\\sistemul de croaziera este oprit}
+		\Guard{grd3}{false}{$cruise\_speed - 2500 \geq{} CRUISE\_MIN\_SPEED$}{false}{\\verificam daca scaderea valorii vitezei scade sub limita minima}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_speed \bcmeq{} cruise\_speed - 2500$}{false}{\\reducem viteza de croaziera cu 2.5km/h}
+	}
+}
+\EVT{input\_increase\_cruise\_speed}{true}{ordinary}{input\_increase\_cruise\_speed}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{\\motorul este pornit}
+		\Guard{grd2}{false}{$cruise\_system\_state = FALSE$}{false}{\\sistemul de croaziera este oprit}
+		\Guard{grd3}{false}{$cruise\_speed + 2500 \leq{} CRUISE\_MAX\_SPEED$}{false}{\\verificam daca cresterea vitezei de croaziera depaseste viteza maxima}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_speed \bcmeq{} cruise\_speed + 2500$}{false}{\\se adauga valoarea 2.5km/h la viteza de croaziera}
+	}
+}
+\EVT{start\_engine}{true}{ordinary}{start\_engine}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = FALSE$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$engine\_state \bcmeq{} CHANGE\_BOOL\_STATE(engine\_state)$}{false}{}
+	}
+}
+\EVT{stop\_engine}{true}{ordinary}{stop\_engine}{}{
+	\GUARDS{false}{
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$cruise\_system\_state \bcmeq{} FALSE$}{false}{}
+		\Action{act3}{$engine\_state \bcmeq{} FALSE$}{false}{}
+	}
+}
+\EVT{execute\_increase\_acc\_pedal\_command}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$acc\_pedal\_command = 1$}{true}{\\comanda curenta este de accelerare}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$acc\_pedal\_command \bcmeq{} 0$}{true}{\\reseteaza comanda}
+	}
+}
+\EVT{execute\_increase\_brake\_pedal\_command}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$brake\_pedal\_command = 1$}{true}{\\comanda curenta pentru actuatorul de franare este apasare}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$brake\_pedal\_command \bcmeq{} 0$}{true}{\\reseteaza comanda}
+	}
+}
+\EVT{execute\_decrease\_acc\_pedal\_command}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$acc\_pedal\_command = 2$}{true}{\\comanda curenta pentru actuatorul de acceleratie este scadere apasare}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$acc\_pedal\_command \bcmeq{} 0$}{true}{\\resetare comanda}
+	}
+}
+\EVT{execute\_decrease\_brake\_pedal\_command}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$brake\_pedal\_command = 2$}{true}{\\comanda curenta pentru actuatorul de franare este apasare}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$brake\_pedal\_command \bcmeq{} 0$}{true}{\\reseteaza comanda}
+	}
+}
+\EVT{execute\_lift\_acc\_pedal\_command}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$acc\_pedal\_command = 3$}{true}{\\comanda curenta pentru actuatorul de accelerare este eliminare apasare}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$acc\_pedal\_command \bcmeq{} 0$}{true}{\\reseteaza comanda}
+	}
+}
+\EVT{execute\_lift\_brake\_pedal\_command}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$brake\_pedal\_command = 3$}{true}{\\comanda curenta pentru actuatorul de franare este eliminare apasare}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$brake\_pedal\_command \bcmeq{} 0$}{true}{\\reseteaza comanda}
+	}
+}
+\EVT{vehicle\_enters\_safety\_distance}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$prev\_distance\_sensor = -1$}{true}{\\la momentul anterior nu exista un vehicul in fata}
+		\Guard{grd2}{false}{$distance\_sensor \neq{} -1$}{true}{\\o masina a patruns in distanta de siguranta}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd4}{false}{$engine\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 3$}{true}{\\se trimite comanda pentru eliminarea apasarii acceleratiei}
+		\Action{act2}{$safety\_distance\_timer \bcmeq{} 0$}{true}{\\se seteaza cronometrul pentru distanta de siguranta}
+		\Action{act3}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{true}{\\se stocheaza distanta curenta ca valoare anterioara}
+		\Action{act4}{$vehicle\_board\_warning \bcmeq{} TRUE$}{true}{\\se trimite un semnal de atentionare soferului}
+	}
+}
+\EVT{vehicle\_in\_safety\_distance\_before\_timer}{false}{ordinary}{}{\\eveniment declansat cand masina se afla in distanta de siguranta de mai putin de 10 secunde}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{true}{\\o masina se afla in fata}
+		\Guard{grd2}{false}{$safety\_distance\_timer < 10$}{true}{\\cronometrul nu a atins 10 secunde}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd4}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd5}{false}{$prev\_distance\_sensor \neq{} -1$}{true}{\\vehiculul a fost detectat anterior}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{true}{\\se incrementeaza cronometrul cu o secunda}
+		\Action{act2}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{true}{\\actualizam distanta pana la vehicul}
+	}
+}
+\EVT{vehicle\_in\_safety\_distance\_increased}{false}{ordinary}{}{\\vehiculul din fata se distanteaza}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{true}{}
+		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{true}{\\vehiculul se afla in distanta de siguranta de mai mult de 10 secunde}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd4}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd5}{false}{$distance\_sensor > prev\_distance\_sensor$}{true}{\\vehiculul din fata se distanteaza de vehiculul nostru}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{true}{\\se incrementeaza cronometrul}
+		\Action{act2}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{true}{}
+		\Action{act3}{$brake\_pedal\_command \bcmeq{} 2$}{true}{\\se trimite comanda de scadere a apasarii franei}
+	}
+}
+\EVT{vehicle\_in\_safety\_distance\_decreased}{false}{ordinary}{}{\\vehiculul din fata se apropie}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{true}{}
+		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{true}{\\vehiculul din fata se afla acolo de cel putin 10 secunde}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd4}{false}{$distance\_sensor \leq{} prev\_distance\_sensor$}{true}{\\vehiculul din fata se apropie de vehiculul nostru}
+		\Guard{grd5}{false}{$engine\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{true}{\\se incrementeaza cronometrul}
+		\Action{act2}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{true}{}
+		\Action{act3}{$brake\_pedal\_command \bcmeq{} 1$}{true}{\\se trimite comanda de crestere a franarii}
+	}
+}
+\EVT{vehicle\_exits\_safety\_distance}{false}{ordinary}{}{\\vehiculul din fata iese din detectia senzorului}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$distance\_sensor = -1$}{true}{}
+		\Guard{grd2}{false}{$prev\_distance\_sensor \neq{} -1$}{true}{}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd4}{false}{$engine\_state = TRUE$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{true}{}
+		\Action{act2}{$brake\_pedal\_command \bcmeq{} 3$}{true}{\\se trimite comanda de eliminare a apasarii franei}
+		\Action{act3}{$vehicle\_board\_warning \bcmeq{} FALSE$}{true}{\\se sterge avertizarea trimisa soferului}
+	}
+}
+\EVT{input\_increase\_distance\_sensor}{false}{ordinary}{}{\\vehiculul din fata se distanteaza (update valoare senzor)}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$distance\_sensor < SAFETY\_DISTANCE$}{true}{\\distanta pana la vehiculul din fata este mai mica decat valoarea prestabilita a distantei de siguranta}
+		\Guard{grd4}{false}{$distance\_sensor \neq{} -1$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$distance\_sensor \bcmeq{} distance\_sensor + 1$}{true}{\\creste valoarea detectata cu 1 metru (masina din fata s-a distantat cu 1 metru)}
+	}
+}
+\EVT{input\_decrease\_distance\_sensor}{false}{ordinary}{}{\\vehiculul din fata se apropie (update valoare senzor)}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$distance\_sensor > 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$distance\_sensor \bcmeq{} distance\_sensor - 1$}{true}{\\scade valoarea detectata cu 1 metru (masina din fata s-a distantat cu 1 metru)}
+	}
+}
+\EVT{input\_exits\_range\_distance\_sensor}{false}{ordinary}{}{\\resetare senzor cand masina din fata iese din zona de detectie}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$distance\_sensor = SAFETY\_DISTANCE$}{true}{\\exista o distanta de cel putin SAFETY$\_$DISTANCE metri intre masina noastra si cea din fata}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$distance\_sensor \bcmeq{} -1$}{true}{\\reseteaza senzor pe valoarea "nedetectat"}
+	}
+}
+\EVT{cruise\_accelerate\_vehicle}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$distance\_sensor = -1$}{true}{\\nu este nicio masina detectata in fata}
+		\Guard{grd4}{false}{$acc\_pedal\_command = 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 1$}{true}{\\accelereaza vehiculul}
+	}
+}
+\EVT{cruise\_decelerate\_vehicle}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$distance\_sensor = -1$}{true}{\\nu este nicio masina in fata}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 2$}{true}{\\scade nivelul de accelerare}
+	}
+}
+\EVT{input\_enters\_range\_distance\_sensor}{false}{ordinary}{}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{true}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$distance\_sensor = -1$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$distance\_sensor \bcmeq{} SAFETY\_DISTANCE$}{true}{}
+	}
+}
+}
+\END
+\MultiHeader{MACHINE}{CruiseMc2}
+\MACHINE{CruiseMc2}{CruiseMc1}{CruiseCtx2}{}
+\VARIABLES{
+	\Variable{distance\_sensor}{}
+	\Variable{prev\_distance\_sensor}{}
+	\Variable{vehicle\_board\_warning}{}
+	\Variable{safety\_distance\_timer}{}
+	\Variable{acc\_pedal\_command}{}
+	\Variable{brake\_pedal\_command}{}
+	\Variable{cruise\_speed}{}
+	\Variable{cruise\_system\_state}{}
+	\Variable{engine\_state}{}
+	\Variable{acc\_pedal\_perc}{}
+	\Variable{brake\_pedal\_perc}{}
+	\Variable{vehicle\_speed}{}
+	\Variable{ONE\_PERC\_SPEED}{}
+}
+\INVARIANTS{
+	\Invariant{inv1}{false}{$acc\_pedal\_perc \in{} 0\upto{}100$}{\\procentajul apasarii pedalei de acceleratie}
+	\Invariant{inv2}{false}{$brake\_pedal\_perc \in{} 0\upto{}100$}{\\procentajul apasarii pedalei de franare}
+	\Invariant{inv3}{false}{$vehicle\_speed \in{} \intg{}$}{}
+	\Invariant{inv4}{false}{$ONE\_PERC\_SPEED \in{} \nat{}$}{}
+}
+\EVENTS{
+\INITIALISATION{true}{}{
+	\ACTIONS{false}{
+		\Action{act1}{$cruise\_system\_state \bcmeq{} FALSE$}{false}{\\initial sistemul de croaziera este oprit}
+		\Action{act2}{$cruise\_speed \bcmeq{} 50000$}{false}{\\viteza de croaziera prestabilita este de 50km/h}
+		\Action{act3}{$engine\_state \bcmeq{} FALSE$}{false}{\\motorul este oprit}
+		\Action{act7}{$acc\_pedal\_command \bcmeq{} 0$}{false}{\\nu se transmite niciun semnal actuatorului de accelerare}
+		\Action{act8}{$brake\_pedal\_command \bcmeq{} 0$}{false}{\\nu se transmite niciun semnal actuatorului de franare}
+		\Action{act9}{$distance\_sensor \bcmeq{} -1$}{false}{\\se asuma faptul ca nu este nicio masina in disanta de siguranta}
+		\Action{act10}{$prev\_distance\_sensor \bcmeq{} -1$}{false}{}
+		\Action{act11}{$vehicle\_board\_warning \bcmeq{} FALSE$}{false}{}
+		\Action{act12}{$safety\_distance\_timer \bcmeq{} 0$}{false}{}
+		\Action{act13}{$acc\_pedal\_perc \bcmeq{} 0$}{true}{\\initial pedala de acceleratie este neapasata}
+		\Action{act14}{$brake\_pedal\_perc \bcmeq{} 0$}{true}{\\initial pedala de franare este neapasata}
+		\Action{act15}{$vehicle\_speed \bcmeq{} 0$}{true}{\\viteza initiala a vehiculului este 0}
+		\Action{act16}{$ONE\_PERC\_SPEED \bcmeq{} VEHICLE\_MAX\_SPEED / 100$}{true}{\\aici definim ce inseamna un procent al vitezei masinii}
+	}
+}
+\EVT{input\_change\_cruise\_state}{true}{ordinary}{input\_change\_cruise\_state}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_system\_state \bcmeq{} CHANGE\_BOOL\_STATE(cruise\_system\_state)$}{false}{}
+	}
+}
+\EVT{execute\_decrease\_acc\_pedal\_command}{true}{ordinary}{execute\_decrease\_acc\_pedal\_command}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$acc\_pedal\_command = 2$}{false}{\\comanda curenta pentru actuatorul de acceleratie este scadere apasare}
+		\Guard{grd4}{false}{$acc\_pedal\_perc > 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$acc\_pedal\_command \bcmeq{} 0$}{false}{\\resetare comanda}
+		\Action{act3}{$acc\_pedal\_perc \bcmeq{} acc\_pedal\_perc - 1$}{true}{\\se scade procentajul apasarii pedalei de acceleratie cu 1$\%$}
+	}
+}
+\EVT{execute\_decrease\_brake\_pedal\_command}{true}{ordinary}{execute\_decrease\_brake\_pedal\_command}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$brake\_pedal\_command = 2$}{false}{\\comanda curenta pentru actuatorul de franare este apasare}
+		\Guard{grd4}{false}{$brake\_pedal\_perc > 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$brake\_pedal\_command \bcmeq{} 0$}{false}{\\reseteaza comanda}
+		\Action{act3}{$brake\_pedal\_perc \bcmeq{} brake\_pedal\_perc - 1$}{true}{\\se scade procentajul apasarii pedalei de frana cu 1$\%$}
+	}
+}
+\EVT{input\_decrease\_cruise\_speed}{true}{ordinary}{input\_decrease\_cruise\_speed}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{\\motorul este pornit}
+		\Guard{grd2}{false}{$cruise\_system\_state = FALSE$}{false}{\\sistemul de croaziera este oprit}
+		\Guard{grd3}{false}{$cruise\_speed - 2500 \geq{} CRUISE\_MIN\_SPEED$}{false}{\\verificam daca scaderea valorii vitezei scade sub limita minima}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_speed \bcmeq{} cruise\_speed - 2500$}{false}{\\reducem viteza de croaziera cu 2.5km/h}
+	}
+}
+\EVT{execute\_increase\_acc\_pedal\_command}{true}{ordinary}{execute\_increase\_acc\_pedal\_command}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$acc\_pedal\_command = 1$}{false}{\\comanda curenta este de accelerare}
+		\Guard{grd4}{false}{$acc\_pedal\_perc < 100$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$acc\_pedal\_command \bcmeq{} 0$}{false}{\\reseteaza comanda}
+		\Action{act3}{$acc\_pedal\_perc \bcmeq{} acc\_pedal\_perc + 1$}{true}{\\se creste procentajul apasarii pedalei de acceleratie cu 1$\%$}
+	}
+}
+\EVT{execute\_increase\_brake\_pedal\_command}{true}{ordinary}{execute\_increase\_brake\_pedal\_command}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$brake\_pedal\_command = 1$}{false}{\\comanda curenta pentru actuatorul de franare este apasare}
+		\Guard{grd4}{false}{$brake\_pedal\_perc < 100$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$brake\_pedal\_command \bcmeq{} 0$}{false}{\\reseteaza comanda}
+		\Action{act3}{$brake\_pedal\_perc \bcmeq{} brake\_pedal\_perc + 1$}{true}{\\se creste procentajul apasarii pedalei de franare cu 1$\%$}
+	}
+}
+\EVT{input\_increase\_cruise\_speed}{true}{ordinary}{input\_increase\_cruise\_speed}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{\\motorul este pornit}
+		\Guard{grd2}{false}{$cruise\_system\_state = FALSE$}{false}{\\sistemul de croaziera este oprit}
+		\Guard{grd3}{false}{$cruise\_speed + 2500 \leq{} CRUISE\_MAX\_SPEED$}{false}{\\verificam daca cresterea vitezei de croaziera depaseste viteza maxima}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$cruise\_speed \bcmeq{} cruise\_speed + 2500$}{false}{\\se adauga valoarea 2.5km/h la viteza de croaziera}
+	}
+}
+\EVT{execute\_lift\_acc\_pedal\_command}{true}{ordinary}{execute\_lift\_acc\_pedal\_command}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$acc\_pedal\_command = 3$}{false}{\\comanda curenta pentru actuatorul de accelerare este eliminare apasare}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$acc\_pedal\_command \bcmeq{} 0$}{false}{\\reseteaza comanda}
+		\Action{act3}{$acc\_pedal\_perc \bcmeq{} 0$}{true}{}
+	}
+}
+\EVT{execute\_lift\_brake\_pedal\_command}{true}{ordinary}{execute\_lift\_brake\_pedal\_command}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$brake\_pedal\_command = 3$}{false}{\\comanda curenta pentru actuatorul de franare este eliminare apasare}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$brake\_pedal\_command \bcmeq{} 0$}{false}{\\reseteaza comanda}
+		\Action{act3}{$brake\_pedal\_perc \bcmeq{} 0$}{true}{}
+	}
+}
+\EVT{start\_engine}{true}{ordinary}{start\_engine}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$engine\_state = FALSE$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$engine\_state \bcmeq{} CHANGE\_BOOL\_STATE(engine\_state)$}{false}{}
+		\Action{act2}{$vehicle\_speed \bcmeq{} 1000$}{true}{}
+	}
+}
+\EVT{stop\_engine}{true}{ordinary}{stop\_engine}{}{
+	\GUARDS{false}{
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$vehicle\_speed < 1000$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act2}{$cruise\_system\_state \bcmeq{} FALSE$}{false}{}
+		\Action{act3}{$engine\_state \bcmeq{} FALSE$}{false}{}
+	}
+}
+\EVT{vehicle\_enters\_safety\_distance}{true}{ordinary}{vehicle\_enters\_safety\_distance}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$prev\_distance\_sensor = -1$}{false}{\\la momentul anterior nu exista un vehicul in fata}
+		\Guard{grd2}{false}{$distance\_sensor \neq{} -1$}{false}{\\o masina a patruns in distanta de siguranta}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd4}{false}{$engine\_state = TRUE$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 3$}{false}{\\se trimite comanda pentru eliminarea apasarii acceleratiei}
+		\Action{act2}{$safety\_distance\_timer \bcmeq{} 0$}{false}{\\se seteaza cronometrul pentru distanta de siguranta}
+		\Action{act3}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{false}{\\se stocheaza distanta curenta ca valoare anterioara}
+		\Action{act4}{$vehicle\_board\_warning \bcmeq{} TRUE$}{false}{\\se trimite un semnal de atentionare soferului}
+	}
+}
+\EVT{vehicle\_in\_safety\_distance\_before\_timer}{true}{ordinary}{vehicle\_in\_safety\_distance\_before\_timer}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{false}{\\o masina se afla in fata}
+		\Guard{grd2}{false}{$safety\_distance\_timer < 10$}{false}{\\cronometrul nu a atins 10 secunde}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd4}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd5}{false}{$prev\_distance\_sensor \neq{} -1$}{false}{\\vehiculul a fost detectat anterior}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{false}{\\se incrementeaza cronometrul cu o secunda}
+		\Action{act2}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{false}{\\actualizam distanta pana la vehicul}
+	}
+}
+\EVT{vehicle\_in\_safety\_distance\_increased}{true}{ordinary}{vehicle\_in\_safety\_distance\_increased}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{false}{}
+		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{false}{\\vehiculul se afla in distanta de siguranta de mai mult de 10 secunde}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd4}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd5}{false}{$distance\_sensor > prev\_distance\_sensor$}{false}{\\vehiculul din fata se distanteaza de vehiculul nostru}
+		\Guard{grd6}{false}{$brake\_pedal\_perc > 100$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{false}{\\se incrementeaza cronometrul}
+		\Action{act2}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{false}{}
+		\Action{act3}{$brake\_pedal\_command \bcmeq{} 2$}{false}{\\se trimite comanda de scadere a apasarii franei}
+	}
+}
+\EVT{vehicle\_in\_safety\_distance\_decreased}{true}{ordinary}{vehicle\_in\_safety\_distance\_decreased}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$distance\_sensor \neq{} -1$}{false}{}
+		\Guard{grd2}{false}{$safety\_distance\_timer \geq{} 10$}{false}{\\vehiculul din fata se afla acolo de cel putin 10 secunde}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd4}{false}{$distance\_sensor \leq{} prev\_distance\_sensor$}{false}{\\vehiculul din fata se apropie de vehiculul nostru}
+		\Guard{grd5}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd6}{false}{$brake\_pedal\_perc < 100$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$safety\_distance\_timer \bcmeq{} safety\_distance\_timer + 1$}{false}{\\se incrementeaza cronometrul}
+		\Action{act2}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{false}{}
+		\Action{act3}{$brake\_pedal\_command \bcmeq{} 1$}{false}{\\se trimite comanda de crestere a franarii}
+	}
+}
+\EVT{vehicle\_exits\_safety\_distance}{true}{ordinary}{vehicle\_exits\_safety\_distance}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$distance\_sensor = -1$}{false}{}
+		\Guard{grd2}{false}{$prev\_distance\_sensor \neq{} -1$}{false}{}
+		\Guard{grd3}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd4}{false}{$engine\_state = TRUE$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$prev\_distance\_sensor \bcmeq{} distance\_sensor$}{false}{}
+		\Action{act2}{$brake\_pedal\_command \bcmeq{} 3$}{false}{\\se trimite comanda de eliminare a apasarii franei}
+		\Action{act3}{$vehicle\_board\_warning \bcmeq{} FALSE$}{false}{\\se sterge avertizarea trimisa soferului}
+	}
+}
+\EVT{input\_increase\_distance\_sensor}{true}{ordinary}{input\_increase\_distance\_sensor}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$distance\_sensor < SAFETY\_DISTANCE$}{false}{\\distanta pana la vehiculul din fata este mai mica decat valoarea prestabilita a distantei de siguranta}
+		\Guard{grd4}{false}{$distance\_sensor \neq{} -1$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$distance\_sensor \bcmeq{} distance\_sensor + 1$}{false}{\\creste valoarea detectata cu 1 metru (masina din fata s-a distantat cu 1 metru)}
+	}
+}
+\EVT{input\_decrease\_distance\_sensor}{true}{ordinary}{input\_decrease\_distance\_sensor}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$distance\_sensor > 0$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$distance\_sensor \bcmeq{} distance\_sensor - 1$}{false}{\\scade valoarea detectata cu 1 metru (masina din fata s-a distantat cu 1 metru)}
+	}
+}
+\EVT{input\_exits\_range\_distance\_sensor}{true}{ordinary}{input\_exits\_range\_distance\_sensor}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$distance\_sensor = SAFETY\_DISTANCE$}{false}{\\exista o distanta de cel putin SAFETY$\_$DISTANCE metri intre masina noastra si cea din fata}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$distance\_sensor \bcmeq{} -1$}{false}{\\reseteaza senzor pe valoarea "nedetectat"}
+	}
+}
+\EVT{cruise\_accelerate\_vehicle}{true}{ordinary}{cruise\_accelerate\_vehicle}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$distance\_sensor = -1$}{false}{\\nu este nicio masina detectata in fata}
+		\Guard{grd4}{false}{$acc\_pedal\_command = 0$}{false}{}
+		\Guard{grd5}{false}{$vehicle\_speed < cruise\_speed$}{true}{}
+		\Guard{grd6}{false}{$brake\_pedal\_perc = 0$}{true}{}
+		\Guard{grd7}{false}{$acc\_pedal\_perc < 100$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 1$}{false}{\\accelereaza vehiculul}
+	}
+}
+\EVT{cruise\_decelerate\_vehicle}{true}{ordinary}{cruise\_decelerate\_vehicle}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$distance\_sensor = -1$}{false}{\\nu este nicio masina in fata}
+		\Guard{grd4}{false}{$vehicle\_speed > cruise\_speed$}{true}{}
+		\Guard{grd5}{false}{$brake\_pedal\_perc = 0$}{true}{}
+		\Guard{grd6}{false}{$acc\_pedal\_perc > 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$acc\_pedal\_command \bcmeq{} 2$}{false}{\\scade nivelul de accelerare}
+	}
+}
+\EVT{input\_enters\_range\_distance\_sensor}{true}{ordinary}{input\_enters\_range\_distance\_sensor}{}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$cruise\_system\_state = TRUE$}{false}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{false}{}
+		\Guard{grd3}{false}{$distance\_sensor = -1$}{false}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$distance\_sensor \bcmeq{} SAFETY\_DISTANCE$}{false}{}
+	}
+}
+\EVT{update\_speed\_with\_acc\_below}{false}{ordinary}{}{\\accelereaza vehiculul cand pedala de acceleratie este apasata}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$acc\_pedal\_perc > 0 $}{true}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$vehicle\_speed \leq{} acc\_pedal\_perc * ONE\_PERC\_SPEED$}{true}{\\vedem daca viteza curenta a vehiculului e mai mica decat trebuie pentru procentul de apasare a acceleratiei}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$vehicle\_speed \bcmeq{} vehicle\_speed + 50 * (acc\_pedal\_perc - (vehicle\_speed * 100 / VEHICLE\_MAX\_SPEED))$}{true}{}
+	}
+}
+\EVT{update\_speed\_no\_acc}{false}{ordinary}{}{\\decelereaza vehiculul cand acceleratia nu este apasata (pedala de frana poate fi apasata)}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$acc\_pedal\_perc = 0$}{true}{}
+		\Guard{grd2}{false}{$vehicle\_speed > 0$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$vehicle\_speed \bcmeq{} vehicle\_speed - 50 * (((vehicle\_speed * 100 + ONE\_PERC\_SPEED) / VEHICLE\_MAX\_SPEED) + brake\_pedal\_perc)$}{true}{\\actualizeaza viteza vehiculului cand se decelereaza}
+	}
+}
+\EVT{update\_speed\_with\_acc\_above}{false}{ordinary}{}{\\decelereaza vehiculul atunci cand pedala de acceleratie este apasata dar viteza depaseeste viteza maxima a vehiculului}{
+	\GUARDS{false}{
+		\Guard{grd1}{false}{$acc\_pedal\_perc > 0 $}{true}{}
+		\Guard{grd2}{false}{$engine\_state = TRUE$}{true}{}
+		\Guard{grd3}{false}{$vehicle\_speed > acc\_pedal\_perc * ONE\_PERC\_SPEED$}{true}{}
+	}
+	\ACTIONS{true}{
+		\Action{act1}{$vehicle\_speed \bcmeq{} vehicle\_speed - 50 * ((vehicle\_speed * 100 / VEHICLE\_MAX\_SPEED) + 1 - acc\_pedal\_perc)$}{true}{}
+	}
+}
+}
+\END
+\end{document}

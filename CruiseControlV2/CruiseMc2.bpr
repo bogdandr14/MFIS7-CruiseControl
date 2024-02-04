@@ -11,13 +11,13 @@
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p24">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p24"/>
-                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p12">
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p13">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
-                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with brake_pedal_command=1" org.eventb.core.prHyps="p13">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with brake_pedal_command=1" org.eventb.core.prHyps="p14">
                                     <org.eventb.core.prAnte name="'">
-                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p14,p11,p9,p18,p21,p10,p19,p6,p7,p1,p22,p20,p15,p23,p4,p8,p5,p16,p17,p2">
+                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p15,p12,p10,p19,p8,p11,p20,p6,p7,p1,p22,p21,p16,p23,p4,p9,p5,p17,p18,p2">
                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                         </org.eventb.core.prRule>
                                     </org.eventb.core.prAnte>
@@ -47,40 +47,40 @@
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="brake_pedal_perc&lt;100"/>
         <org.eventb.core.prPred name="p7" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_speed∈ℤ">
             <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="vehicle_board_warning∈BOOL">
             <org.eventb.core.prIdent name="vehicle_board_warning" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="brake_pedal_perc+1∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="prev_distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cruise_system_state=TRUE"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command=1"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cruise_system_state=TRUE"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_command=1"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="execute_increase_acc_pedal_command/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24">
         <org.eventb.core.lang name="L"/>
@@ -93,13 +93,13 @@
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p24">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p24"/>
-                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p11">
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p12">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
-                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_command=1" org.eventb.core.prHyps="p18">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_command=1" org.eventb.core.prHyps="p19">
                                     <org.eventb.core.prAnte name="'">
-                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p18"/>
-                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p12,p10,p8,p16,p20,p9,p17,p5,p6,p1,p22,p19,p13,p23,p3,p7,p4,p14,p15,p21">
+                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p19"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p13,p11,p9,p17,p7,p10,p18,p5,p6,p1,p22,p20,p14,p23,p3,p8,p4,p15,p16,p21">
                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                         </org.eventb.core.prRule>
                                     </org.eventb.core.prAnte>
@@ -128,17 +128,18 @@
         <org.eventb.core.prIdent name="prev_distance_sensor" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_speed∈ℤ">
             <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="vehicle_board_warning∈BOOL">
             <org.eventb.core.prIdent name="vehicle_board_warning" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="acc_pedal_perc&lt;100"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
@@ -147,51 +148,33 @@
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="acc_pedal_perc+1∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cruise_system_state=TRUE"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cruise_system_state=TRUE"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="acc_pedal_command=1"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="acc_pedal_command=1"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11">
+    <org.eventb.core.prProof name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p11,p9,p7,p5,p10,p8,p6,p3,p4,p1">
-            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R500"/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
-        <org.eventb.core.prIdent name="CRUISE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="CRUISE_MIN_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="PEDAL_COMMANDS" org.eventb.core.type="ℙ(ℤ)"/>
-        <org.eventb.core.prIdent name="SAFETY_DISTANCE" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prIdent name="VEHICLE_MAX_SPEED" org.eventb.core.type="ℤ"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p11,p9,p7,p5,p10,p8,p6,p3,p4,p1">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p11,p10,p8,p5,p6,p9,p7,p3,p4,p1">
             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
         </org.eventb.core.prRule>
         <org.eventb.core.prIdent name="CHANGE_BOOL_STATE" org.eventb.core.type="ℙ(BOOL×BOOL)"/>
@@ -205,11 +188,11 @@
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
@@ -225,13 +208,13 @@
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p24">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p24"/>
-                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p11">
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p12">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
                                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_command=2" org.eventb.core.prHyps="p23">
                                     <org.eventb.core.prAnte name="'">
                                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p23"/>
-                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p12,p10,p8,p17,p20,p9,p18,p5,p6,p1,p21,p19,p13,p22,p3,p7,p4,p14,p16,p15">
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p13,p11,p9,p18,p7,p10,p19,p5,p6,p1,p21,p20,p14,p22,p3,p8,p4,p15,p17,p16">
                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                         </org.eventb.core.prRule>
                                     </org.eventb.core.prAnte>
@@ -260,17 +243,18 @@
         <org.eventb.core.prIdent name="prev_distance_sensor" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_speed∈ℤ">
             <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="vehicle_board_warning∈BOOL">
             <org.eventb.core.prIdent name="vehicle_board_warning" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="acc_pedal_command=2"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
@@ -278,23 +262,22 @@
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="prev_distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cruise_system_state=TRUE"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="acc_pedal_perc&gt;0"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cruise_system_state=TRUE"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="acc_pedal_perc&gt;0"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="engine_state∈BOOL"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="acc_pedal_perc − 1∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="execute_decrease_brake_pedal_command/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24">
         <org.eventb.core.lang name="L"/>
@@ -307,13 +290,13 @@
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p24">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p24"/>
-                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p12">
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p13">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
-                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with brake_pedal_command=2" org.eventb.core.prHyps="p13">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with brake_pedal_command=2" org.eventb.core.prHyps="p14">
                                     <org.eventb.core.prAnte name="'">
-                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p14,p11,p9,p18,p21,p10,p19,p6,p7,p1,p22,p20,p15,p23,p3,p8,p4,p16,p17,p5">
+                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p15,p12,p10,p19,p8,p11,p20,p6,p7,p1,p22,p21,p16,p23,p3,p9,p4,p17,p18,p5">
                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                         </org.eventb.core.prRule>
                                     </org.eventb.core.prAnte>
@@ -342,18 +325,19 @@
         <org.eventb.core.prIdent name="prev_distance_sensor" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p7" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_speed∈ℤ">
             <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command=2"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_command=2"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="vehicle_board_warning∈BOOL">
             <org.eventb.core.prIdent name="vehicle_board_warning" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
@@ -361,22 +345,21 @@
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="brake_pedal_perc&gt;0"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="brake_pedal_perc − 1∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cruise_system_state=TRUE"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cruise_system_state=TRUE"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="execute_lift_acc_pedal_command/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23">
         <org.eventb.core.lang name="L"/>
@@ -389,13 +372,13 @@
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p23">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p23"/>
-                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p11">
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p12">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
                                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_command=3" org.eventb.core.prHyps="p22">
                                     <org.eventb.core.prAnte name="'">
                                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p22"/>
-                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p12,p10,p8,p16,p19,p9,p17,p5,p6,p1,p20,p18,p13,p21,p3,p7,p4,p14,p15">
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p13,p11,p9,p17,p7,p10,p18,p5,p6,p1,p20,p19,p14,p21,p3,p8,p4,p15,p16">
                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                         </org.eventb.core.prRule>
                                     </org.eventb.core.prAnte>
@@ -424,40 +407,40 @@
         <org.eventb.core.prIdent name="prev_distance_sensor" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="vehicle_speed∈ℤ">
             <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="vehicle_board_warning∈BOOL">
             <org.eventb.core.prIdent name="vehicle_board_warning" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
         <org.eventb.core.prPred name="p20" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="prev_distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cruise_system_state=TRUE"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cruise_system_state=TRUE"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="acc_pedal_command=3"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="execute_lift_brake_pedal_command/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23">
         <org.eventb.core.lang name="L"/>
@@ -470,13 +453,13 @@
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p23">
                     <org.eventb.core.prAnte name="'">
                         <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p23"/>
-                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p11">
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with cruise_system_state=TRUE" org.eventb.core.prHyps="p12">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
-                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with brake_pedal_command=3" org.eventb.core.prHyps="p13">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
+                                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with brake_pedal_command=3" org.eventb.core.prHyps="p14">
                                     <org.eventb.core.prAnte name="'">
-                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p12,p10,p8,p17,p20,p9,p18,p5,p6,p1,p21,p19,p14,p22,p3,p7,p4,p15,p16">
+                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p13,p11,p9,p18,p7,p10,p19,p5,p6,p1,p21,p20,p15,p22,p3,p8,p4,p16,p17">
                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                         </org.eventb.core.prRule>
                                     </org.eventb.core.prAnte>
@@ -505,40 +488,40 @@
         <org.eventb.core.prIdent name="prev_distance_sensor" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="vehicle_speed∈ℤ">
             <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="cruise_system_state∈BOOL"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="vehicle_board_warning∈BOOL">
             <org.eventb.core.prIdent name="vehicle_board_warning" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="prev_distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cruise_system_state=TRUE"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command=3"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cruise_system_state=TRUE"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_command=3"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="update_speed_with_acc/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
@@ -678,10 +661,10 @@
                         <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p25"/>
                         <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p26"/>
                         <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p27"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_perc=0" org.eventb.core.prHyps="p16">
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with acc_pedal_perc=0" org.eventb.core.prHyps="p17">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p16"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p23" org.eventb.core.prHyps="p2,p12,p11,p8,p17,p20,p9,p18,p5,p6,p1,p21,p19,p13,p22,p3,p7,p4,p14,p15,p10">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p17"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p23" org.eventb.core.prHyps="p2,p13,p12,p9,p18,p7,p10,p19,p5,p6,p1,p21,p20,p14,p22,p3,p8,p4,p15,p16,p11">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -707,10 +690,11 @@
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="vehicle_speed∈ℤ"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="cruise_system_state∈BOOL">
             <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
@@ -719,38 +703,37 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLE_MAX_SPEED≠0"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬VEHICLE_MAX_SPEED=0"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="prev_distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="vehicle_speed&gt;0"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="vehicle_speed&gt;0"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="engine_state∈BOOL">
             <org.eventb.core.prIdent name="engine_state" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="acc_pedal_perc=0"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="acc_pedal_perc=0"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
                 <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p12"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p11,p9,p7,p5,p10,p8,p6,p3,p4,p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p11,p10,p8,p5,p6,p9,p7,p3,p4,p1">
                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
@@ -766,16 +749,16 @@
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLE_MAX_SPEED ÷ 100∈ℕ"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
         <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="100≠0"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="INITIALISATION/act16/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
@@ -802,7 +785,7 @@
                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p23">
                             <org.eventb.core.prAnte name="'">
                                 <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p23"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p24" org.eventb.core.prHyps="p2,p11,p10,p8,p16,p20,p9,p17,p5,p6,p1,p21,p19,p12,p22,p3,p7,p4,p13,p15,p14,p18">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p24" org.eventb.core.prHyps="p2,p12,p11,p9,p17,p7,p10,p18,p5,p6,p1,p21,p20,p13,p22,p3,p8,p4,p14,p16,p15,p19">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -829,10 +812,11 @@
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_speed∈ℤ"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="cruise_system_state∈BOOL">
             <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
@@ -841,30 +825,29 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLE_MAX_SPEED≠0"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬VEHICLE_MAX_SPEED=0"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="vehicle_speed≤acc_pedal_perc∗ONE_PERC_SPEED"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="vehicle_speed≤acc_pedal_perc∗ONE_PERC_SPEED"/>
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="prev_distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="acc_pedal_perc&gt;0"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="acc_pedal_perc&gt;0"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="update_speed_with_acc_above/act1/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23">
         <org.eventb.core.lang name="L"/>
@@ -879,7 +862,7 @@
                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with engine_state=TRUE" org.eventb.core.prHyps="p23">
                             <org.eventb.core.prAnte name="'">
                                 <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p23"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p24" org.eventb.core.prHyps="p2,p11,p10,p8,p16,p20,p9,p17,p5,p6,p1,p21,p19,p12,p22,p3,p7,p4,p13,p15,p14,p18">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p24" org.eventb.core.prHyps="p2,p12,p11,p9,p17,p7,p10,p18,p5,p6,p1,p21,p20,p13,p22,p3,p8,p4,p14,p16,p15,p19">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -906,10 +889,11 @@
         <org.eventb.core.prIdent name="safety_distance_timer" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prIdent name="vehicle_speed" org.eventb.core.type="ℤ"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="VEHICLE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="CRUISE_MIN_SPEED=10000"/>
         <org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_speed∈ℤ"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="safety_distance_timer∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="PEDAL_COMMANDS=0 ‥ 3"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="CHANGE_BOOL_STATE={TRUE ↦ FALSE,FALSE ↦ TRUE}"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="cruise_system_state∈BOOL">
             <org.eventb.core.prIdent name="cruise_system_state" org.eventb.core.type="BOOL"/>
         </org.eventb.core.prPred>
@@ -918,29 +902,28 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="VEHICLE_MAX_SPEED≠0"/>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="¬VEHICLE_MAX_SPEED=0"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="vehicle_speed&gt;acc_pedal_perc∗ONE_PERC_SPEED"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="SAFETY_DISTANCE∈ℕ"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="vehicle_speed&gt;acc_pedal_perc∗ONE_PERC_SPEED"/>
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="cruise_speed∈CRUISE_MIN_SPEED ‥ CRUISE_MAX_SPEED"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="VEHICLE_MAX_SPEED=200000"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="CHANGE_BOOL_STATE∈BOOL ⤖ BOOL"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="prev_distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p4" org.eventb.core.predicate="acc_pedal_perc∈0 ‥ 100"/>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SAFETY_DISTANCE=50"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="acc_pedal_perc&gt;0"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="CRUISE_MAX_SPEED=180000"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="CRUISE_MAX_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="brake_pedal_command∈PEDAL_COMMANDS"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="brake_pedal_perc∈0 ‥ 100"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="acc_pedal_perc&gt;0"/>
         <org.eventb.core.prPred name="p26" org.eventb.core.predicate="engine_state∈BOOL"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="CRUISE_MIN_SPEED=40000"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="ONE_PERC_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="CRUISE_MIN_SPEED∈ℕ"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="acc_pedal_command∈PEDAL_COMMANDS"/>
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="distance_sensor∈−1 ‥ SAFETY_DISTANCE"/>
         <org.eventb.core.prPred name="p23" org.eventb.core.predicate="engine_state=TRUE"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eqL1:1"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>

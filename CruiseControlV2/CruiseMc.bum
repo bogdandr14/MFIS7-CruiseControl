@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;org.eventb.codegen.ui.cgConfig" version="5">
     <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
-        <org.eventb.core.action name="(" org.eventb.core.assignment="cruise_system_state ≔ FALSE" org.eventb.core.label="act1"/>
-        <org.eventb.core.action name="," org.eventb.core.assignment="cruise_speed ≔ 50000" org.eventb.core.label="act2"/>
-        <org.eventb.core.action name="-" org.eventb.core.assignment="engine_state ≔ FALSE" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="cruise_system_state ≔ FALSE" org.eventb.core.comment="initial sistemul de croaziera este oprit" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="cruise_speed ≔ 50000" org.eventb.core.comment="viteza de croaziera prestabilita este de 50km/h" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="engine_state ≔ FALSE" org.eventb.core.comment="motorul este oprit" org.eventb.core.label="act3"/>
     </org.eventb.core.event>
     <org.eventb.core.seesContext name=")" org.eventb.core.target="CruiseCtx"/>
     <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="*" org.eventb.core.identifier="cruise_system_state"/>
     <org.eventb.core.variable ch.ethz.eventb.decomposition.nature="1" name="." org.eventb.core.identifier="cruise_speed"/>
     <org.eventb.core.invariant name="/" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv1" org.eventb.core.predicate="cruise_system_state ∈ BOOL"/>
     <org.eventb.core.invariant name="3" org.eventb.codegen.ui.typingAttribute="Typing" org.eventb.core.label="inv2" org.eventb.core.predicate="cruise_speed ∈ CRUISE_MIN_SPEED‥CRUISE_MAX_SPEED "/>
-    <org.eventb.core.event name="6" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="start_engine">
+    <org.eventb.core.event name="6" org.eventb.core.comment="porneste motorul daca este oprit" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="start_engine">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = FALSE"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="engine_state ≔ CHANGE_BOOL_STATE(engine_state)" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="7" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="stop_engine">
+    <org.eventb.core.event name="7" org.eventb.core.comment="opreste motorul si sistemul de croaziera daca motorul este pornit" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="stop_engine">
         <org.eventb.core.action name="(" org.eventb.core.assignment="cruise_system_state ≔ FALSE" org.eventb.core.label="act2"/>
         <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.action name="+" org.eventb.core.assignment="engine_state ≔ FALSE" org.eventb.core.label="act3"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="8" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_increase_cruise_speed">
-        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = FALSE"/>
-        <org.eventb.core.action name=")" org.eventb.core.assignment="cruise_speed ≔ cruise_speed + 2500" org.eventb.core.label="act1"/>
-        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_speed + 2500 ≤ CRUISE_MAX_SPEED"/>
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="motorul este pornit" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="sistemul de croaziera este oprit" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = FALSE"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="cruise_speed ≔ cruise_speed + 2500" org.eventb.core.comment="se adauga valoarea 2.5km/h la viteza de croaziera" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="*" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="verificam daca cresterea vitezei de croaziera depaseste viteza maxima" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_speed + 2500 ≤ CRUISE_MAX_SPEED"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="9" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_decrease_cruise_speed">
-        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
-        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = FALSE"/>
-        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_speed − 2500 ≥ CRUISE_MIN_SPEED"/>
-        <org.eventb.core.action name="*" org.eventb.core.assignment="cruise_speed ≔ cruise_speed − 2500" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="motorul este pornit" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="sistemul de croaziera este oprit" org.eventb.core.label="grd2" org.eventb.core.predicate="cruise_system_state = FALSE"/>
+        <org.eventb.core.guard name=")" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.comment="verificam daca scaderea valorii vitezei scade sub limita minima" org.eventb.core.label="grd3" org.eventb.core.predicate="cruise_speed − 2500 ≥ CRUISE_MIN_SPEED"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="cruise_speed ≔ cruise_speed − 2500" org.eventb.core.comment="reducem viteza de croaziera cu 2.5km/h" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name=":" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_change_cruise_state">
+    <org.eventb.core.event name=":" org.eventb.core.comment="porneste sistemul de croaziera odata cu pornirea motorului" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="input_change_cruise_state">
         <org.eventb.core.guard name="'" org.eventb.codegen.ui.branchingAttribute="--unset--" org.eventb.codegen.ui.typingAttribute="NonTyping" org.eventb.core.label="grd1" org.eventb.core.predicate="engine_state = TRUE"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="cruise_system_state ≔ CHANGE_BOOL_STATE(cruise_system_state)" org.eventb.core.label="act1"/>
     </org.eventb.core.event>
